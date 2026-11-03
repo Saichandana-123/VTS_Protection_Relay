@@ -1,0 +1,723 @@
+{
+  "seed": 20261104,
+  "device": "cpu",
+  "train_cases": [
+    "case_001",
+    "case_002",
+    "case_003",
+    "case_004",
+    "case_005",
+    "case_006",
+    "case_007",
+    "case_008",
+    "case_009",
+    "case_010",
+    "case_011",
+    "case_012",
+    "case_013",
+    "case_014",
+    "case_015",
+    "case_016",
+    "case_017",
+    "case_018",
+    "case_019",
+    "case_020",
+    "case_021",
+    "case_022",
+    "case_023",
+    "case_024",
+    "case_025",
+    "case_026",
+    "case_027",
+    "case_028",
+    "case_029",
+    "case_030",
+    "case_031",
+    "case_032",
+    "case_033",
+    "case_034",
+    "case_035",
+    "case_036",
+    "case_037",
+    "case_038",
+    "case_039",
+    "case_040",
+    "case_041",
+    "case_042",
+    "case_043",
+    "case_044",
+    "case_045",
+    "case_046",
+    "case_047",
+    "case_048",
+    "case_049",
+    "case_050",
+    "case_051",
+    "case_052",
+    "case_053",
+    "case_054",
+    "case_055",
+    "case_056",
+    "case_057",
+    "case_058",
+    "case_059",
+    "case_060",
+    "case_061",
+    "case_062",
+    "case_063",
+    "case_064",
+    "case_065",
+    "case_066",
+    "case_067",
+    "case_068",
+    "case_069",
+    "case_070",
+    "case_071",
+    "case_072",
+    "case_073",
+    "case_074",
+    "case_075",
+    "case_076",
+    "case_077",
+    "case_078",
+    "case_079",
+    "case_080",
+    "case_081",
+    "case_082",
+    "case_083",
+    "case_084",
+    "case_085",
+    "case_086",
+    "case_087"
+  ],
+  "validation_cases": [
+    "case_088",
+    "case_089",
+    "case_090",
+    "case_091",
+    "case_092",
+    "case_093",
+    "case_094",
+    "case_095",
+    "case_096",
+    "case_097",
+    "case_098",
+    "case_099",
+    "case_100",
+    "case_101",
+    "case_102",
+    "case_103",
+    "case_104",
+    "case_105",
+    "case_106",
+    "case_107",
+    "case_108"
+  ],
+  "stages": {
+    "stage1": {
+      "checkpoint": "C:\\Users\\Medha Trust\\OneDrive\\Desktop\\BTP\\VTS_Protection_Relay\\models\\trained\\stage1_best.pt",
+      "inputs": [
+        "IA_OK",
+        "IB_OK",
+        "IC_OK",
+        "DELTA_IA_OK",
+        "DELTA_IB_OK",
+        "DELTA_IC_OK",
+        "VTS_MANRESET",
+        "VTS_AUTORESET",
+        "VAB_OK",
+        "VBC_OK",
+        "VTS_BLOCKING",
+        "ACCELERATE_IND"
+      ],
+      "targets": [
+        "1_OR_OUT",
+        "2_OR_OUT",
+        "3_OR_OUT",
+        "1_AND_OUT",
+        "2_AND_OUT"
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.037115061769964625,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.22897527234542092,
+          "validation_accuracy": 0.9113621296530303
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.0034120724276304215,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.18741315660149177,
+          "validation_accuracy": 0.9113621296530303
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.0010636682665612,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.18182435232502564,
+          "validation_accuracy": 0.9113621296530303
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.0005081857014611941,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.18145444142828973,
+          "validation_accuracy": 0.9033041414396695
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.00029308434892233405,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.1815898652703871,
+          "validation_accuracy": 0.9033041414396695
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.00018758912443655508,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.18173343420188492,
+          "validation_accuracy": 0.9033041414396695
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.00012847672336935555,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.18192563426223843,
+          "validation_accuracy": 0.9033041414396695
+        }
+      ],
+      "best_train_loss": 0.0005081857059756203,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 0.18145444142828973,
+      "best_validation_accuracy": 0.9033041414396695
+    },
+    "stage2": {
+      "checkpoint": "C:\\Users\\Medha Trust\\OneDrive\\Desktop\\BTP\\VTS_Protection_Relay\\models\\trained\\stage2_best.pt",
+      "inputs": [
+        "V2",
+        "I2",
+        "240_TIMER_OUT",
+        "1_AND_OUT",
+        "2_OR_OUT"
+      ],
+      "targets": [
+        "3_AND_OUT",
+        "4_AND_OUT",
+        "4_OR_OUT",
+        "5_AND_OUT"
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.08042091897151463,
+          "train_accuracy": 0.9586919485415357,
+          "validation_loss": 0.08414563364215877,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.03588214020255457,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.01691305377151733,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.026198830279061735,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.006732166431636343,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.022930119234532927,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.003384107769784077,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.021629194924815968,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.001975575394840232,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.02096504038152281,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.0012532627537492598,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.020596882100169547,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.0008479259136775592,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.020409785553129556,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.0006018451636954111,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.02024880562227872,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.0004429209031245955,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.020294380042942366,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.00033611998572910117,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.020080873468182325,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.0002589737609764943,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.020110023601965645,
+          "train_accuracy": 0.9878435522643263,
+          "validation_loss": 0.00020205747185174635,
+          "validation_accuracy": 1.0
+        }
+      ],
+      "best_train_loss": 0.02011002378619195,
+      "best_train_accuracy": 0.9878435522643263,
+      "best_validation_loss": 0.00020205747185174635,
+      "best_validation_accuracy": 1.0
+    },
+    "stage3": {
+      "checkpoint": "C:\\Users\\Medha Trust\\OneDrive\\Desktop\\BTP\\VTS_Protection_Relay\\models\\trained\\stage3_best.pt",
+      "inputs": [
+        "ALL_POLE_DEAD",
+        "1_OR_OUT",
+        "4_OR_OUT",
+        "4_AND_OUT",
+        "SR_1_OUT",
+        "3_OR_OUT",
+        "ANY_VOLTAGE_DEPENDENT_FUNCTION"
+      ],
+      "targets": [
+        "6_AND_OUT",
+        "7_AND_OUT",
+        "8_AND_OUT",
+        "9_AND_OUT"
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.2652869795058191,
+          "train_accuracy": 0.9075871263660532,
+          "validation_loss": 0.5256554311804457,
+          "validation_accuracy": 0.6575355009321627
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.0832984924489199,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.15709386081893367,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.024086584198272944,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.04292008652214739,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.011373373038490302,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.020247868734771274,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.0065275365352343686,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.01156054750525751,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.004166522333317168,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.0073573572488616415,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.0028474789106419716,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.004987381966909753,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.0020433282471115587,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.003543106724157039,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.0015207335247164227,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.002605208694498194,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.0011648880500176144,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.001968086795067907,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.0009133055847348478,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.0015194730301100186,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.0007309531123318966,
+          "train_accuracy": 0.9999880645785868,
+          "validation_loss": 0.0011922443027819819,
+          "validation_accuracy": 1.0
+        }
+      ],
+      "best_train_loss": 0.0007309531084708281,
+      "best_train_accuracy": 0.9999880645785868,
+      "best_validation_loss": 0.0011922443027819819,
+      "best_validation_accuracy": 1.0
+    },
+    "stage4": {
+      "checkpoint": "C:\\Users\\Medha Trust\\OneDrive\\Desktop\\BTP\\VTS_Protection_Relay\\models\\trained\\stage4_best.pt",
+      "inputs": [
+        "SR_2_OUT",
+        "6_AND_OUT",
+        "240_TIMER_OUT",
+        "2_AND_OUT"
+      ],
+      "targets": [
+        "10_AND_OUT"
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.0013936101450898566,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0006925147749232281,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.0002022938028680892,
+          "train_accuracy": 1.0,
+          "validation_loss": 9.164473763724419e-05,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 3,
+          "train_loss": 7.664268755439728e-05,
+          "train_accuracy": 1.0,
+          "validation_loss": 3.3718481235651654e-05,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 4,
+          "train_loss": 3.939932811532261e-05,
+          "train_accuracy": 1.0,
+          "validation_loss": 1.698335369300128e-05,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 5,
+          "train_loss": 2.367484958333453e-05,
+          "train_accuracy": 1.0,
+          "validation_loss": 1.0320652061110765e-05,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.5724478532928863e-05,
+          "train_accuracy": 1.0,
+          "validation_loss": 6.662701640834857e-06,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 7,
+          "train_loss": 1.1060014043562416e-05,
+          "train_accuracy": 1.0,
+          "validation_loss": 4.859850904921751e-06,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 8,
+          "train_loss": 7.77410748221282e-06,
+          "train_accuracy": 1.0,
+          "validation_loss": 3.0047512227950335e-06,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 9,
+          "train_loss": 5.441875237610004e-06,
+          "train_accuracy": 1.0,
+          "validation_loss": 2.1033258570745664e-06,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 4.664464489256288e-06,
+          "train_accuracy": 1.0,
+          "validation_loss": 1.8028507336770201e-06,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 3.109642992861246e-06,
+          "train_accuracy": 1.0,
+          "validation_loss": 1.2019004891180134e-06,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 12,
+          "train_loss": 3.10964299288758e-06,
+          "train_accuracy": 1.0,
+          "validation_loss": 1.2019004891180134e-06,
+          "validation_accuracy": 1.0
+        }
+      ],
+      "best_train_loss": 3.10964299288758e-06,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 1.2019004891180134e-06,
+      "best_validation_accuracy": 1.0
+    },
+    "stage5": {
+      "checkpoint": "C:\\Users\\Medha Trust\\OneDrive\\Desktop\\BTP\\VTS_Protection_Relay\\models\\trained\\stage5_best.pt",
+      "inputs": [
+        "SR_3_OUT",
+        "MCB_VTS",
+        "8_AND_OUT",
+        "VTS_TIMER_OUT",
+        "20_TIMER_OUT"
+      ],
+      "targets": [
+        "5_OR_OUT",
+        "6_OR_OUT",
+        "7_OR_OUT"
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.2749627317237411,
+          "train_accuracy": 0.924551633369788,
+          "validation_loss": 0.29173238907335897,
+          "validation_accuracy": 0.8681224765372139
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.05819657017374537,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.059561651363205785,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.01912872288497411,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.021311207370879794,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.009313570724769462,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.010439986054072446,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.0054366560979448595,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.006085722655164254,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.003511004394176134,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.00391337685181457,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.002418533150951215,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.002683776171520107,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.0017424894948671566,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.001927060855348402,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.0012972350811451066,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0014295751911731647,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.0009898172959931677,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0010880530756040277,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.0007696061566450124,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0008440702196904244,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.000607368535918145,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0006647293646084167,
+          "validation_accuracy": 1.0
+        }
+      ],
+      "best_train_loss": 0.0006073685297148486,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 0.0006647293646084167,
+      "best_validation_accuracy": 1.0
+    },
+    "stage6": {
+      "checkpoint": "C:\\Users\\Medha Trust\\OneDrive\\Desktop\\BTP\\VTS_Protection_Relay\\models\\trained\\stage6_best.pt",
+      "inputs": [
+        "5_OR_OUT",
+        "6_OR_OUT",
+        "VTS_BLOCKING",
+        "MCB_VTS",
+        "SR_4_OUT"
+      ],
+      "targets": [
+        "SLOW_BLOCK",
+        "FAST_BLOCK",
+        "INDICATION"
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.16540586244174746,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.21553638794281021,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.042480478622284254,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0586027104949612,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.016665783357664037,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.02334382027808094,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.008435480194243348,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.011915504905475743,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.0049644812904956585,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0070516009352894595,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.0031982533561913293,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.004558466125607574,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.0021898546809264153,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0031283915171724124,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.0015663355626171235,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.00224119630189603,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.0011575807816083911,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0016583038244729475,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.0008769603451763099,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0012576311522486206,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.0006775438311715044,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0009727543605953925,
+          "validation_accuracy": 1.0
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.0005317686075715472,
+          "train_accuracy": 1.0,
+          "validation_loss": 0.0007642287142372484,
+          "validation_accuracy": 1.0
+        }
+      ],
+      "best_train_loss": 0.0005317686074339901,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 0.0007642287142372484,
+      "best_validation_accuracy": 1.0
+    }
+  }
+}

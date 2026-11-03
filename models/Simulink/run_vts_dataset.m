@@ -2,7 +2,7 @@
 clear;
 clc;
 
-%% 1. Locate the project and files
+%% 1. Locate project
 scriptDir = fileparts(mfilename('fullpath'));
 projectRoot = fileparts(fileparts(scriptDir));
 
@@ -21,96 +21,208 @@ modelFile = fullfile(scriptDir, [model '.slx']);
 
 assert(isfile(modelFile), 'Simulink model not found.');
 assert(isfile(fullfile(inputDir, 'manifest.csv')), ...
-    'Run the Python input generator first.');
+    'Input manifest not found.');
 
-%% 2. Read the list of input cases
-manifest = readtable(fullfile(inputDir, 'manifest.csv'), ...
+%% 2. Complete signal inventory
+
+% Detector outputs
+detectorSignals = {
+    'IA_OK'
+    'IB_OK'
+    'IC_OK'
+    'VAB_OK'
+    'VBC_OK'
+    'V2_OK'
+    'I2_OK'
+    'DELTA_IA_OK'
+    'DELTA_IB_OK'
+    'DELTA_IC_OK'
+};
+
+% Stage 1
+stage1Signals = {
+    '1_OR_OUT'
+    '2_OR_OUT'
+    '3_OR_OUT'
+    '1_AND_OUT'
+    '2_AND_OUT'
+};
+
+% Timers
+timerSignals = {
+    '240_TIMER_OUT'
+    '20_TIMER_OUT'
+    'VTS_TIMER_OUT'
+};
+
+% Stage 2
+stage2Signals = {
+    '3_AND_OUT'
+    '4_AND_OUT'
+    '4_OR_OUT'
+    '5_AND_OUT'
+};
+
+% Flip-flops
+flipFlopSignals = {
+    'SR_1_OUT'
+    'SR_2_OUT'
+    'SR_3_OUT'
+    'SR_4_OUT'
+};
+
+% Stage 3
+stage3Signals = {
+    '6_AND_OUT'
+    '7_AND_OUT'
+    '8_AND_OUT'
+    '9_AND_OUT'
+};
+
+% Stage 4
+stage4Signals = {
+    '10_AND_OUT'
+};
+
+% Stage 5
+stage5Signals = {
+    '5_OR_OUT'
+    '6_OR_OUT'
+    '7_OR_OUT'
+};
+
+% Stage 6 is extracted from the existing yout outputs.
+
+allSignals = [
+    detectorSignals
+    stage1Signals
+    timerSignals
+    stage2Signals
+    flipFlopSignals
+    stage3Signals
+    stage4Signals
+    stage5Signals
+];
+
+%% 3. Load model and manifest
+
+manifest = readtable( ...
+    fullfile(inputDir, 'manifest.csv'), ...
     'TextType', 'string');
 
 load_system(modelFile);
 
-%% 3. Run one case first
-% After case_001 succeeds, change this to height(manifest).
 numberOfCasesToRun = height(manifest);
 
-for k = 1:min(numberOfCasesToRun, height(manifest))
+%% 4. Run every case
+
+for k = 1:numberOfCasesToRun
 
     caseId = manifest.case_id(k);
     inputFile = fullfile(inputDir, manifest.filename(k));
 
-    fprintf('\nRunning %s: %s\n', ...
-        caseId, manifest.scenario(k));
+    fprintf('\nRunning %s (%d/%d)\n', ...
+        caseId, k, numberOfCasesToRun);
 
-    %% Read the Python-generated CSV
+    %% Read input data
     T = readtable(inputFile);
 
-    % Column 1 = time
-    % Columns 2-23 = 22 model inputs
     input_data = T{:,:};
 
     assert(size(input_data, 2) == 23, ...
         'Expected time + 22 input signals.');
 
     assert(all(isfinite(input_data), 'all'), ...
-        'Input contains NaN or Inf values.');
+        'Input contains NaN or Inf.');
 
-    %% Pass input_data to Simulink
+    %% Run Simulink
     simIn = Simulink.SimulationInput(model);
+
     simIn = simIn.setVariable('input_data', input_data);
 
-    % The model should use the time column and input signals
-    % through its existing From Workspace/input interface.
-    % Match the simulation duration to the input sequence.
     simIn = simIn.setModelParameter( ...
         'StopTime', num2str(T.time(end), '%.6f'));
 
     simOut = sim(simIn);
-    disp(simOut.logsout.getElementNames())
 
-    %% Extract outputs using the existing model output order
+    %% Extract final outputs
     slow = simOut.yout{1}.Values;
     fast = simOut.yout{2}.Values;
     ind  = simOut.yout{3}.Values;
 
-    %% Check the output sample counts
+    % Check that all final outputs have the expected number of samples
     assert(numel(slow.Data) == height(T), ...
-        'SLOW_BLOCK output length mismatch.');
+        'SLOW_BLOCK sample count mismatch in case %d', k);
 
     assert(numel(fast.Data) == height(T), ...
-        'FAST_BLOCK output length mismatch.');
+        'FAST_BLOCK sample count mismatch in case %d', k);
 
     assert(numel(ind.Data) == height(T), ...
-        'INDICATION output length mismatch.');
+        'INDICATION sample count mismatch in case %d', k);
 
-    %% Combine inputs and Simulink-generated labels
     R = T;
+
     R.SLOW_BLOCK = double(slow.Data(:));
     R.FAST_BLOCK = double(fast.Data(:));
     R.INDICATION = double(ind.Data(:));
 
     R.case_id = repmat(caseId, height(R), 1);
     R.scenario = repmat(manifest.scenario(k), height(R), 1);
-    
-    % Extract Stage 1 intermediate signals by their actual names
+
+    %% Extract every intermediate signal
+
     logs = simOut.logsout;
 
-    R.("1_OR_OUT")  = logs.getElement('1_OR_OUT').Values.Data(:);
-    R.("2_OR_OUT")  = logs.getElement('2_OR_OUT').Values.Data(:);
-    R.("3_OR_OUT")  = logs.getElement('3_OR_OUT').Values.Data(:);
-    R.("1_AND_OUT") = logs.getElement('1_AND_OUT').Values.Data(:);
-    R.("2_AND_OUT") = logs.getElement('2_AND_OUT').Values.Data(:);
-    %% Save the output
+    loggedNames = logs.getElementNames();
+
+    missingSignals = {};
+
+    for j = 1:numel(allSignals)
+
+        signalName = allSignals{j};
+
+        if ~any(strcmp(loggedNames, signalName))
+            missingSignals{end+1} = signalName;
+            continue;
+        end
+
+        signalElement = logs.getElement(signalName);
+        signalValues = signalElement.Values.Data(:);
+
+        assert(numel(signalValues) == height(T), ...
+            'Sample count mismatch for signal: %s', signalName);
+
+        R.(signalName) = double(signalValues);
+
+    end
+
+    %% Stop if required signals are missing
+    if ~isempty(missingSignals)
+
+        fprintf('\nMissing logged signals:\n');
+
+        for j = 1:numel(missingSignals)
+            fprintf('  - %s\n', missingSignals{j});
+        end
+
+        error(['Complete signal logging in Simulink before ' ...
+               'running the full dataset.']);
+    end
+
+    %% Save complete output
     outputFile = fullfile(outputDir, ...
         char(caseId + "_output.csv"));
 
     writetable(R, outputFile);
 
-    fprintf('Saved output: %s\n', outputFile);
-    fprintf('Rows: %d\n', height(R));
+    fprintf('Saved: %s | Rows: %d | Signals: %d\n', ...
+        outputFile, height(R), numel(allSignals));
 
 end
 
-fprintf('\nInitial test completed.\n');
+fprintf('\nAll %d cases completed successfully.\n', ...
+    numberOfCasesToRun);
+
 fprintf('Output folder: %s\n', outputDir);
 
 close_system(model, 0);
