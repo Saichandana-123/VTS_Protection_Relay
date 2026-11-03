@@ -48,9 +48,9 @@ verification rather than presented as historical fact.
   unnecessary.
 - **Trade-offs:** A surgical repair minimizes collateral changes, but relies on
   the existing generator and reference model remaining unchanged.
-- **Evidence:** `repair_case_089_input.py`,
+- **Evidence:** `scripts/dataset/repair_case_089_input.py`,
   `models/Simulink/repair_case_089_output.m`, manifest rows 088-090, and the
-  successful result of `check_dataset.py`.
+  successful result of `scripts/dataset/check_dataset.py`.
 - **Status:** Confirmed.
 
 ### D-004 — Preserve the 62-column dataset contract
@@ -65,7 +65,7 @@ verification rather than presented as historical fact.
 - **Trade-offs:** The schema is wide and consumes more memory, but supports
   stage-wise supervision and diagnostics.
 - **Evidence:** `models/Simulink/run_vts_dataset.m:30-216`,
-  `combine_simulink_dataset.py`, and `case_088_output.csv`.
+  `scripts/dataset/combine_simulink_dataset.py`, and `case_088_output.csv`.
 - **Status:** Confirmed.
 
 ### D-005 — Use the logged Simulink detector outputs directly for Stage 1
@@ -189,7 +189,8 @@ verification rather than presented as historical fact.
   loss were rejected for the stage-wise training run.
 - **Trade-offs:** Stage-wise BCE is stable and diagnosable, but it does not
   guarantee integrated end-to-end accuracy.
-- **Evidence:** `train_six_stage_network.py`, stage output lists, and
+- **Evidence:** `scripts/training/train_six_stage_network.py`, stage output
+  lists, and
   `training_metrics.json`.
 - **Status:** Confirmed for the completed training run.
 
@@ -202,7 +203,7 @@ verification rather than presented as historical fact.
 - **Alternatives considered:** Random row splitting was rejected.
 - **Trade-offs:** Case-wise validation is more honest but leaves fewer
   independent validation scenarios and is sensitive to case ordering.
-- **Evidence:** `train_six_stage_network.py` and
+- **Evidence:** `scripts/training/train_six_stage_network.py` and
   `models/trained/training_metrics.json`.
 - **Status:** Confirmed for this experiment; stratified case selection is a
   possible future improvement.
@@ -240,7 +241,8 @@ verification rather than presented as historical fact.
 1. `src/data_generation/generate_simulink_inputs.py` defines `TIME`,
    `SIGNALS`, `SCENARIOS`, `SETTING_CONFIGS`, and `make_case()`.
 2. Its batch loop calls `make_case()` and writes input CSVs and `manifest.csv`.
-   The repaired workflow uses `repair_case_089_input.py`, which AST-selects
+   The repaired workflow uses `scripts/dataset/repair_case_089_input.py`,
+   which AST-selects
    only imports, `DT`, `STOP_TIME`, `TIME`, `SIGNALS`, and `make_case()`;
    it does not execute the batch loop.
 3. `models/Simulink/run_vts_dataset.m` reads each manifest input, sets
@@ -248,12 +250,12 @@ verification rather than presented as historical fact.
    `sim()`.
 4. It extracts `yout{1}`, `yout{2}`, and `yout{3}` as the three final outputs,
    reads `simOut.logsout`, and appends the 34 logged signals.
-5. `combine_simulink_dataset.py` concatenates the 108 output CSVs into
+5. `scripts/dataset/combine_simulink_dataset.py` concatenates the 108 output CSVs into
    `data/simulink_dataset/vts_training_dataset.csv`.
 
 ### Training flow
 
-1. `train_six_stage_network.py` reads only `case_id` to establish the
+1. `scripts/training/train_six_stage_network.py` reads only `case_id` to establish the
    case-wise split, then reads only the required columns for each stage.
 2. It constructs the corresponding `Stage*MLP`, creates tensor datasets and
    loaders, trains with Adam and `BCEWithLogitsLoss`, evaluates each epoch,
@@ -273,7 +275,8 @@ verification rather than presented as historical fact.
 6. Stage 4 predicts `10_AND_OUT`; tVTS and 20 ms timers update.
 7. SR3 updates; Stage 5 predicts three OR outputs; SR4 updates.
 8. Stage 6 predicts `SLOW_BLOCK`, `FAST_BLOCK`, and `INDICATION`.
-9. `evaluate_integrated_model.py` loads all six `stage*_best.pt` files and
+9. `scripts/training/evaluate_integrated_model.py` loads all six
+   `stage*_best.pt` files and
    applies this sequence to every row of validation cases 088-108, saving
    per-output and per-row mismatches to
    `models/trained/integrated_evaluation.json`.
@@ -309,7 +312,8 @@ flowchart LR
   evaluating only a small batch was rejected for this milestone.
 - **Trade-offs:** Full case-wise sequential inference is slower, but reports
   actual system-level output accuracy and exact mismatches.
-- **Evidence:** `evaluate_integrated_model.py`, the saved training split, and
+- **Evidence:** `scripts/training/evaluate_integrated_model.py`, the saved
+  training split, and
   the resulting `models/trained/integrated_evaluation.json`.
 - **Result:** The 21 validation cases were evaluated sequentially, using
   273,021 rows. `SLOW_BLOCK` accuracy was 90.1092% with 27,004 mismatches;
@@ -347,3 +351,27 @@ configuration, or experimental decision:
 4. Preserve prior entries; do not silently rewrite or remove history.
 5. Mark unresolved concerns explicitly and update their status only when
    evidence is collected.
+
+## 2026-11-04 — Repository structure cleanup
+
+- **Decision:** Group operational scripts under `scripts/dataset`,
+  `scripts/training`, and `scripts/matlab`; place the signal-flow CSV under
+  `docs`; retain Python packages under `src`, Simulink assets under
+  `models/Simulink`, and checkpoints under `models/trained`.
+- **Reason:** The root contained dataset utilities, training entry points,
+  MATLAB utilities, documentation data, and generated caches together. The
+  grouped layout separates responsibilities without changing model or dataset
+  locations.
+- **Alternatives considered:** Leaving all entry points at the root or moving
+  source packages and model assets into a new hierarchy was considered
+  unnecessary; the approved change moves only operational/documentation files.
+- **Trade-offs:** Commands now use paths such as
+  `python scripts/training/train_six_stage_network.py`, and path resolution
+  required updates. The result is easier to navigate while preserving the
+  existing data/model contracts.
+- **Evidence:** Moved files, updated repository-root resolution in the
+  affected scripts, and `.gitignore` rules for generated Python and Simulink
+  artifacts.
+- **Files affected:** `scripts/dataset/`, `scripts/training/`,
+  `scripts/matlab/`, `docs/`, `.gitignore`, and this log.
+- **Status:** Confirmed after syntax/import checks.
