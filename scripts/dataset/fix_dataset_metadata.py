@@ -2,7 +2,7 @@
 from pathlib import Path
 import pandas as pd
 
-root = Path(__file__).resolve().parents[2]
+root = Path(__file__).resolve().parent
 dataset_path = root / "data" / "simulink_dataset" / "vts_training_dataset.csv"
 manifest_path = root / "data" / "simulink_dataset" / "inputs" / "manifest.csv"
 

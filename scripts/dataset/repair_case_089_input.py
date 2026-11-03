@@ -5,7 +5,7 @@ import csv
 import numpy as np
 
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parent
 generator_path = ROOT / "src" / "data_generation" / "generate_simulink_inputs.py"
 input_dir = ROOT / "data" / "simulink_dataset" / "inputs"
 input_path = input_dir / "case_089.csv"

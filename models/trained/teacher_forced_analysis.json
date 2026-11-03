@@ -1,0 +1,280 @@
+{
+  "validation_cases": [
+    "case_088",
+    "case_089",
+    "case_090",
+    "case_091",
+    "case_092",
+    "case_093",
+    "case_094",
+    "case_095",
+    "case_096",
+    "case_097",
+    "case_098",
+    "case_099",
+    "case_100",
+    "case_101",
+    "case_102",
+    "case_103",
+    "case_104",
+    "case_105",
+    "case_106",
+    "case_107",
+    "case_108"
+  ],
+  "method": "Each stage receives only its reference CSV inputs; no predicted upstream stage output is passed to another stage.",
+  "stages": {
+    "stage1": {
+      "1_OR_OUT": {
+        "support_0": 221017,
+        "support_1": 52004,
+        "tp": 52004,
+        "tn": 221017,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "2_OR_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      },
+      "3_OR_OUT": {
+        "support_0": 117009,
+        "support_1": 156012,
+        "tp": 156012,
+        "tn": 117009,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "1_AND_OUT": {
+        "support_0": 231000,
+        "support_1": 42021,
+        "tp": 42021,
+        "tn": 99000,
+        "fp": 132000,
+        "fn": 0,
+        "precision": 0.24147085696553863,
+        "recall": 1.0,
+        "f1": 0.38900769294859333,
+        "accuracy": 0.5165207071983474
+      },
+      "2_AND_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      }
+    },
+    "stage2": {
+      "3_AND_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      },
+      "4_AND_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      },
+      "4_OR_OUT": {
+        "support_0": 42021,
+        "support_1": 231000,
+        "tp": 231000,
+        "tn": 42021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "5_AND_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      }
+    },
+    "stage3": {
+      "6_AND_OUT": {
+        "support_0": 86021,
+        "support_1": 187000,
+        "tp": 187000,
+        "tn": 86021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "7_AND_OUT": {
+        "support_0": 249009,
+        "support_1": 24012,
+        "tp": 24012,
+        "tn": 249009,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "8_AND_OUT": {
+        "support_0": 86021,
+        "support_1": 187000,
+        "tp": 187000,
+        "tn": 86021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "9_AND_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      }
+    },
+    "stage4": {
+      "10_AND_OUT": {
+        "support_0": 273021,
+        "support_1": 0,
+        "tp": 0,
+        "tn": 273021,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 1.0
+      }
+    },
+    "stage5": {
+      "5_OR_OUT": {
+        "support_0": 165005,
+        "support_1": 108016,
+        "tp": 108016,
+        "tn": 165005,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "6_OR_OUT": {
+        "support_0": 80015,
+        "support_1": 193006,
+        "tp": 193006,
+        "tn": 80015,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "7_OR_OUT": {
+        "support_0": 171011,
+        "support_1": 102010,
+        "tp": 102010,
+        "tn": 171011,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      }
+    },
+    "stage6": {
+      "SLOW_BLOCK": {
+        "support_0": 227015,
+        "support_1": 46006,
+        "tp": 46006,
+        "tn": 227015,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "FAST_BLOCK": {
+        "support_0": 194019,
+        "support_1": 79002,
+        "tp": 79002,
+        "tn": 194019,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "INDICATION": {
+        "support_0": 165005,
+        "support_1": 108016,
+        "tp": 108016,
+        "tn": 165005,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      }
+    }
+  }
+}

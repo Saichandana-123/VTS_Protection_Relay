@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-root = Path(__file__).resolve().parents[2]
+root = Path(__file__).resolve().parent
 path = root / "data" / "simulink_dataset" / "vts_training_dataset.csv"
 
 df = pd.read_csv(path)

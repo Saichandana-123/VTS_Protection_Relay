@@ -2,12 +2,8 @@ from __future__ import annotations
 
 import json
 import random
-import sys
 from pathlib import Path
 from typing import Dict, Iterable, List, Sequence, Tuple
-
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT))
 
 import numpy as np
 import pandas as pd
@@ -23,6 +19,7 @@ from src.models.stage5_model import Stage5MLP
 from src.models.stage6_model import Stage6MLP
 
 
+ROOT = Path(__file__).resolve().parent
 DATASET = ROOT / "data" / "simulink_dataset" / "vts_training_dataset.csv"
 OUTPUT_DIR = ROOT / "models" / "trained"
 SEED = 20261104

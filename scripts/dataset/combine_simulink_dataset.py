@@ -2,7 +2,7 @@
 from pathlib import Path
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = ROOT / "data" / "simulink_dataset" / "outputs"
 DESTINATION = ROOT / "data" / "simulink_dataset" / "vts_training_dataset.csv"
 
@@ -47,3 +47,4 @@ for target in ["SLOW_BLOCK", "FAST_BLOCK", "INDICATION"]:
 print("\nScenario counts:")
 if "scenario" in dataset.columns:
     print(dataset.groupby("scenario")["case_id"].nunique())
+

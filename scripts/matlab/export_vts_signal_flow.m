@@ -1,9 +1,6 @@
 
-scriptDir = fileparts(mfilename('fullpath'));
-projectRoot = fileparts(fileparts(scriptDir));
 model = 'P642_VTS_Reference';
-modelFile = fullfile(projectRoot, 'models', 'Simulink', [model '.slx']);
-load_system(modelFile);
+load_system(model);
 
 blocks = find_system(model, ...
     'SearchDepth', 1, ...
@@ -83,7 +80,7 @@ end
 T = cell2table(rows, 'VariableNames', ...
     {'Block', 'BlockType', 'Direction', 'Port', 'ConnectedBlock'});
 
-outputFile = fullfile(projectRoot, 'docs', 'vts_signal_flow.csv');
-writetable(T, outputFile);
+writetable(T, 'vts_signal_flow.csv');
 
-fprintf('Exported %d connection records to %s\n', height(T), outputFile);
+fprintf('Exported %d connection records to vts_signal_flow.csv\n', ...
+    height(T));

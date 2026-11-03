@@ -7,7 +7,7 @@ Inputs:
     DELTA_IA_GT, DELTA_IB_GT, DELTA_IC_GT
     VTS_MANRESET, VTS_AUTORESET
     VAB_GT, VBC_GT
-    NOT_VTS_BLOCKING, ACCELERATE_IND
+    VTS_BLOCKING, ACCELERATE_IND
 
 Outputs:
     1_OR_OUT, 2_OR_OUT, 3_OR_OUT,
@@ -23,7 +23,7 @@ STAGE1_INPUTS = [
     "DELTA_IA_GT", "DELTA_IB_GT", "DELTA_IC_GT",
     "VTS_MANRESET", "VTS_AUTORESET",
     "VAB_GT", "VBC_GT",
-    "NOT_VTS_BLOCKING", "ACCELERATE_IND",
+    "VTS_BLOCKING", "ACCELERATE_IND",
 ]
 
 STAGE1_OUTPUTS = [
@@ -50,7 +50,15 @@ class Stage1MLP(nn.Module):
         )
 
     def forward(self, signals):
-        return self.network(signals)
+        logits = self.network(signals)
+
+        # The reference 2_AND gate receives NOT VTS_BLOCKING. Keep the
+        # external Stage 1 input raw and apply this inversion only to 2_AND.
+        gate2_signals = signals.clone()
+        gate2_signals[:, 10] = 1.0 - gate2_signals[:, 10]
+        gate2_logits = self.network(gate2_signals)[:, 4:5]
+
+        return torch.cat([logits[:, :4], gate2_logits], dim=1)
 
     def predict_binary(self, signals):
         logits = self.forward(signals)

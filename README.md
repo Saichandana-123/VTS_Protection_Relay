@@ -20,21 +20,12 @@ The project is investigating an MLP + FiLM-based architecture with explicit mech
 ## Project Structure
 
 ```text
-data/             → Input data and completed datasets
-src/              → Python implementation
-models/           → Simulink reference model and trained checkpoints
-scripts/dataset/  → Dataset preparation and inspection entry points
-scripts/training/ → Training and integrated evaluation entry points
-scripts/matlab/   → MATLAB utility entry points
-docs/             → Signal-flow documentation data
-tests/            → Test cases
-decisions.md      → Append-only engineering decision log
-```
-
-Common commands are run from the project root:
-
-```powershell
-python scripts\dataset\check_dataset.py
-python scripts\dataset\combine_simulink_dataset.py
-python scripts\training\train_six_stage_network.py
-python scripts\training\evaluate_integrated_model.py
+data/          → Input data and datasets
+src/           → Implementation
+models/        → Neural network models
+logic/         → Relay logic implementation
+timing/        → Timing mechanisms
+tests/         → Test cases
+experiments/   → Experiments and results
+notebooks/     → Jupyter notebooks
+docs/          → Project documentation

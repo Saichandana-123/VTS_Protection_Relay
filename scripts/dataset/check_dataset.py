@@ -2,8 +2,7 @@
 from pathlib import Path
 import pandas as pd
 
-root = Path(__file__).resolve().parents[2]
-folder = root / "data" / "simulink_dataset" / "outputs"
+folder = Path("data/simulink_dataset/outputs")
 files = sorted(folder.glob("case_*_output.csv"))
 
 print("Output files:", len(files))

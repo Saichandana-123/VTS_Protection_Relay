@@ -155,7 +155,6 @@ class VTSStagedModel:
                 for alias, source in detector_aliases.items()
                 if alias not in inputs and source in inputs
             },
-            "NOT_VTS_BLOCKING": 1.0 - float(inputs["VTS_BLOCKING"]),
         }
 
         if "tVTS" not in inputs:
