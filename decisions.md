@@ -311,7 +311,30 @@ flowchart LR
   actual system-level output accuracy and exact mismatches.
 - **Evidence:** `evaluate_integrated_model.py`, the saved training split, and
   the resulting `models/trained/integrated_evaluation.json`.
-- **Status:** Pending execution.
+- **Result:** The 21 validation cases were evaluated sequentially, using
+  273,021 rows. `SLOW_BLOCK` accuracy was 90.1092% with 27,004 mismatches;
+  `FAST_BLOCK` accuracy was 83.5174% with 45,001 mismatches; and
+  `INDICATION` accuracy was 78.7522% with 58,011 mismatches.
+- **Status:** Completed, but the integrated model does not yet meet a
+  correctness target. Stage-wise validation accuracy is therefore not a
+  substitute for end-to-end accuracy.
+
+### 2026-11-04 — End-to-end mismatch follow-up
+
+- **Decision:** Treat the integrated evaluation as a failing baseline rather
+  than claim successful system replication.
+- **Reason:** The final-output mismatches are material despite high
+  stage-wise validation scores, demonstrating error propagation or a
+  discrepancy in sequential state/timing behavior.
+- **Alternatives considered:** Reporting only the 100% Stage 2-6 metrics or
+  treating binary outputs as sufficient was rejected because neither measures
+  agreement with the Simulink final outputs.
+- **Trade-offs:** Keeping the baseline artifacts preserves reproducibility and
+  makes debugging possible, but further training or architectural changes
+  should wait until the mismatch source is isolated.
+- **Evidence:** `models/trained/integrated_evaluation.json` and the console
+  result from `evaluate_integrated_model.py`.
+- **Status:** Confirmed baseline failure; root-cause analysis is pending.
 
 ## Permanent update policy
 
