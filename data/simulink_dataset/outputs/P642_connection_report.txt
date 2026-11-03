@@ -1,0 +1,734 @@
+MODEL: P642_VTS_Reference
+
+========== BLOCKS ==========
+P642_VTS_Reference/VAB | Inport
+P642_VTS_Reference/VBC | Inport
+P642_VTS_Reference/V2 | Inport
+P642_VTS_Reference/I2 | Inport
+P642_VTS_Reference/I2_Setting | Inport
+P642_VTS_Reference/delta_IA | Inport
+P642_VTS_Reference/delta_IB | Inport
+P642_VTS_Reference/delta_IC | Inport
+P642_VTS_Reference/In | Inport
+P642_VTS_Reference/ANY_POLE_DEAD | Inport
+P642_VTS_Reference/MCB_VTS | Inport
+P642_VTS_Reference/VTS_BLOCKING | Inport
+P642_VTS_Reference/VTS_AUTORESET | Inport
+P642_VTS_Reference/VTS_MANRESET | Inport
+P642_VTS_Reference/ANY_VOLTAGE_DEPENDENT_FUNCTION | Inport
+P642_VTS_Reference/ACCELERATE_IND | Inport
+P642_VTS_Reference/tVTS | Inport
+P642_VTS_Reference/IA | Inport
+P642_VTS_Reference/IB | Inport
+P642_VTS_Reference/IC | Inport
+P642_VTS_Reference/I_Setting | Inport
+P642_VTS_Reference/ALL_POLE_DEAD | Inport
+P642_VTS_Reference/ . | Logic
+P642_VTS_Reference/240ms_timer_Drop_off | SubSystem
+P642_VTS_Reference/240ms_timer_Drop_off/any_pole_dead | Inport
+P642_VTS_Reference/240ms_timer_Drop_off/ Demux  | Demux
+P642_VTS_Reference/240ms_timer_Drop_off/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/240ms_timer_Drop_off/ Terminator  | Terminator
+P642_VTS_Reference/240ms_timer_Drop_off/y | Outport
+P642_VTS_Reference/I2_Current_Detector | SubSystem
+P642_VTS_Reference/I2_Current_Detector/I2 | Inport
+P642_VTS_Reference/I2_Current_Detector/I2_setting | Inport
+P642_VTS_Reference/I2_Current_Detector/ Demux  | Demux
+P642_VTS_Reference/I2_Current_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/I2_Current_Detector/ Terminator  | Terminator
+P642_VTS_Reference/I2_Current_Detector/y | Outport
+P642_VTS_Reference/IA_Current_Detector | SubSystem
+P642_VTS_Reference/IA_Current_Detector/IA | Inport
+P642_VTS_Reference/IA_Current_Detector/I_setting | Inport
+P642_VTS_Reference/IA_Current_Detector/ Demux  | Demux
+P642_VTS_Reference/IA_Current_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/IA_Current_Detector/ Terminator  | Terminator
+P642_VTS_Reference/IA_Current_Detector/y | Outport
+P642_VTS_Reference/IB_Current_Detector | SubSystem
+P642_VTS_Reference/IB_Current_Detector/IB | Inport
+P642_VTS_Reference/IB_Current_Detector/I_setting | Inport
+P642_VTS_Reference/IB_Current_Detector/ Demux  | Demux
+P642_VTS_Reference/IB_Current_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/IB_Current_Detector/ Terminator  | Terminator
+P642_VTS_Reference/IB_Current_Detector/y | Outport
+P642_VTS_Reference/IC_Current_Detector | SubSystem
+P642_VTS_Reference/IC_Current_Detector/IC | Inport
+P642_VTS_Reference/IC_Current_Detector/I_setting | Inport
+P642_VTS_Reference/IC_Current_Detector/ Demux  | Demux
+P642_VTS_Reference/IC_Current_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/IC_Current_Detector/ Terminator  | Terminator
+P642_VTS_Reference/IC_Current_Detector/y | Outport
+P642_VTS_Reference/Logical
+Operator | Logic
+P642_VTS_Reference/Logical
+Operator1 | Logic
+P642_VTS_Reference/Logical
+Operator10 | Logic
+P642_VTS_Reference/Logical
+Operator11 | Logic
+P642_VTS_Reference/Logical
+Operator12 | Logic
+P642_VTS_Reference/Logical
+Operator13 | Logic
+P642_VTS_Reference/Logical
+Operator14 | Logic
+P642_VTS_Reference/Logical
+Operator15 | Logic
+P642_VTS_Reference/Logical
+Operator16 | Logic
+P642_VTS_Reference/Logical
+Operator17 | Logic
+P642_VTS_Reference/Logical
+Operator18 | Logic
+P642_VTS_Reference/Logical
+Operator19 | Logic
+P642_VTS_Reference/Logical
+Operator2 | Logic
+P642_VTS_Reference/Logical
+Operator20 | Logic
+P642_VTS_Reference/Logical
+Operator21 | Logic
+P642_VTS_Reference/Logical
+Operator22 | Logic
+P642_VTS_Reference/Logical
+Operator23 | Logic
+P642_VTS_Reference/Logical
+Operator24 | Logic
+P642_VTS_Reference/Logical
+Operator25 | Logic
+P642_VTS_Reference/Logical
+Operator26 | Logic
+P642_VTS_Reference/Logical
+Operator27 | Logic
+P642_VTS_Reference/Logical
+Operator3 | Logic
+P642_VTS_Reference/Logical
+Operator4 | Logic
+P642_VTS_Reference/Logical
+Operator5 | Logic
+P642_VTS_Reference/Logical
+Operator6 | Logic
+P642_VTS_Reference/Logical
+Operator7 | Logic
+P642_VTS_Reference/Logical
+Operator8 | Logic
+P642_VTS_Reference/Logical
+Operator9 | Logic
+P642_VTS_Reference/Phase_Current_level_OR | Logic
+P642_VTS_Reference/S-R
+Flip-Flop | SubSystem
+P642_VTS_Reference/S-R
+Flip-Flop/S | Inport
+P642_VTS_Reference/S-R
+Flip-Flop/R | Inport
+P642_VTS_Reference/S-R
+Flip-Flop/Demux | Demux
+P642_VTS_Reference/S-R
+Flip-Flop/Logic | CombinatorialLogic
+P642_VTS_Reference/S-R
+Flip-Flop/Memory | Memory
+P642_VTS_Reference/S-R
+Flip-Flop/Mux | Mux
+P642_VTS_Reference/S-R
+Flip-Flop/Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop/!Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop1 | SubSystem
+P642_VTS_Reference/S-R
+Flip-Flop1/S | Inport
+P642_VTS_Reference/S-R
+Flip-Flop1/R | Inport
+P642_VTS_Reference/S-R
+Flip-Flop1/Demux | Demux
+P642_VTS_Reference/S-R
+Flip-Flop1/Logic | CombinatorialLogic
+P642_VTS_Reference/S-R
+Flip-Flop1/Memory | Memory
+P642_VTS_Reference/S-R
+Flip-Flop1/Mux | Mux
+P642_VTS_Reference/S-R
+Flip-Flop1/Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop1/!Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop2 | SubSystem
+P642_VTS_Reference/S-R
+Flip-Flop2/S | Inport
+P642_VTS_Reference/S-R
+Flip-Flop2/R | Inport
+P642_VTS_Reference/S-R
+Flip-Flop2/Demux | Demux
+P642_VTS_Reference/S-R
+Flip-Flop2/Logic | CombinatorialLogic
+P642_VTS_Reference/S-R
+Flip-Flop2/Memory | Memory
+P642_VTS_Reference/S-R
+Flip-Flop2/Mux | Mux
+P642_VTS_Reference/S-R
+Flip-Flop2/Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop2/!Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop3 | SubSystem
+P642_VTS_Reference/S-R
+Flip-Flop3/S | Inport
+P642_VTS_Reference/S-R
+Flip-Flop3/R | Inport
+P642_VTS_Reference/S-R
+Flip-Flop3/Demux | Demux
+P642_VTS_Reference/S-R
+Flip-Flop3/Logic | CombinatorialLogic
+P642_VTS_Reference/S-R
+Flip-Flop3/Memory | Memory
+P642_VTS_Reference/S-R
+Flip-Flop3/Mux | Mux
+P642_VTS_Reference/S-R
+Flip-Flop3/Q | Outport
+P642_VTS_Reference/S-R
+Flip-Flop3/!Q | Outport
+P642_VTS_Reference/Timer_20ms_Pickup | SubSystem
+P642_VTS_Reference/Timer_20ms_Pickup/input_signal | Inport
+P642_VTS_Reference/Timer_20ms_Pickup/ Demux  | Demux
+P642_VTS_Reference/Timer_20ms_Pickup/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/Timer_20ms_Pickup/ Terminator  | Terminator
+P642_VTS_Reference/Timer_20ms_Pickup/y | Outport
+P642_VTS_Reference/V2_Level_Detector | Relay
+P642_VTS_Reference/V2_Pole_Condition | Logic
+P642_VTS_Reference/VAB_Level_Detector | Relay
+P642_VTS_Reference/VBC_Level_Detector | Relay
+P642_VTS_Reference/delta_IA_Detector | SubSystem
+P642_VTS_Reference/delta_IA_Detector/delta_IA | Inport
+P642_VTS_Reference/delta_IA_Detector/In | Inport
+P642_VTS_Reference/delta_IA_Detector/ Demux  | Demux
+P642_VTS_Reference/delta_IA_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/delta_IA_Detector/ Terminator  | Terminator
+P642_VTS_Reference/delta_IA_Detector/y | Outport
+P642_VTS_Reference/delta_IB_Detector | SubSystem
+P642_VTS_Reference/delta_IB_Detector/delta_IB | Inport
+P642_VTS_Reference/delta_IB_Detector/In | Inport
+P642_VTS_Reference/delta_IB_Detector/ Demux  | Demux
+P642_VTS_Reference/delta_IB_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/delta_IB_Detector/ Terminator  | Terminator
+P642_VTS_Reference/delta_IB_Detector/y | Outport
+P642_VTS_Reference/delta_IC_Detector | SubSystem
+P642_VTS_Reference/delta_IC_Detector/delta_IC | Inport
+P642_VTS_Reference/delta_IC_Detector/In | Inport
+P642_VTS_Reference/delta_IC_Detector/ Demux  | Demux
+P642_VTS_Reference/delta_IC_Detector/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/delta_IC_Detector/ Terminator  | Terminator
+P642_VTS_Reference/delta_IC_Detector/y | Outport
+P642_VTS_Reference/tVTS Timer | SubSystem
+P642_VTS_Reference/tVTS Timer/input_signal | Inport
+P642_VTS_Reference/tVTS Timer/tVTS | Inport
+P642_VTS_Reference/tVTS Timer/ Demux  | Demux
+P642_VTS_Reference/tVTS Timer/ SFunction  | S-Function
+  FunctionName: sf_sfun
+  Parameters: 
+P642_VTS_Reference/tVTS Timer/ Terminator  | Terminator
+P642_VTS_Reference/tVTS Timer/y | Outport
+P642_VTS_Reference/SLOW BLOCK | Outport
+P642_VTS_Reference/FAST BLOCK | Outport
+P642_VTS_Reference/INDICATION | Outport
+
+========== CONNECTIONS ==========
+P642_VTS_Reference/240ms_timer_Drop_off/ SFunction  [port 338.001] --> P642_VTS_Reference/240ms_timer_Drop_off/ Demux  [port 334.001]
+P642_VTS_Reference/240ms_timer_Drop_off/ Demux  [port 335.001] --> P642_VTS_Reference/240ms_timer_Drop_off/ Terminator  [port 341.001]
+P642_VTS_Reference/240ms_timer_Drop_off/ SFunction  [port 339.001] --> P642_VTS_Reference/240ms_timer_Drop_off/y [port 343.001]
+P642_VTS_Reference/240ms_timer_Drop_off/any_pole_dead [port 332.001] --> P642_VTS_Reference/240ms_timer_Drop_off/ SFunction  [port 337.002]
+P642_VTS_Reference/I2_Current_Detector/ SFunction  [port 361.001] --> P642_VTS_Reference/I2_Current_Detector/ Demux  [port 357.001]
+P642_VTS_Reference/I2_Current_Detector/ Demux  [port 358.001] --> P642_VTS_Reference/I2_Current_Detector/ Terminator  [port 365.001]
+P642_VTS_Reference/I2_Current_Detector/ SFunction  [port 363.001] --> P642_VTS_Reference/I2_Current_Detector/y [port 367.001]
+P642_VTS_Reference/I2_Current_Detector/I2_setting [port 355.001] --> P642_VTS_Reference/I2_Current_Detector/ SFunction  [port 362.001]
+P642_VTS_Reference/I2_Current_Detector/I2 [port 353.001] --> P642_VTS_Reference/I2_Current_Detector/ SFunction  [port 360.002]
+P642_VTS_Reference/IA_Current_Detector/ SFunction  [port 386.001] --> P642_VTS_Reference/IA_Current_Detector/ Demux  [port 382.001]
+P642_VTS_Reference/IA_Current_Detector/ Demux  [port 383.001] --> P642_VTS_Reference/IA_Current_Detector/ Terminator  [port 390.001]
+P642_VTS_Reference/IA_Current_Detector/ SFunction  [port 388.001] --> P642_VTS_Reference/IA_Current_Detector/y [port 392.001]
+P642_VTS_Reference/IA_Current_Detector/I_setting [port 380.001] --> P642_VTS_Reference/IA_Current_Detector/ SFunction  [port 387.001]
+P642_VTS_Reference/IA_Current_Detector/IA [port 378.001] --> P642_VTS_Reference/IA_Current_Detector/ SFunction  [port 385.002]
+P642_VTS_Reference/IB_Current_Detector/ SFunction  [port 411.001] --> P642_VTS_Reference/IB_Current_Detector/ Demux  [port 407.001]
+P642_VTS_Reference/IB_Current_Detector/ Demux  [port 408.001] --> P642_VTS_Reference/IB_Current_Detector/ Terminator  [port 415.001]
+P642_VTS_Reference/IB_Current_Detector/ SFunction  [port 413.001] --> P642_VTS_Reference/IB_Current_Detector/y [port 417.001]
+P642_VTS_Reference/IB_Current_Detector/I_setting [port 405.001] --> P642_VTS_Reference/IB_Current_Detector/ SFunction  [port 412.001]
+P642_VTS_Reference/IB_Current_Detector/IB [port 403.001] --> P642_VTS_Reference/IB_Current_Detector/ SFunction  [port 410.002]
+P642_VTS_Reference/IC_Current_Detector/ SFunction  [port 436.001] --> P642_VTS_Reference/IC_Current_Detector/ Demux  [port 432.001]
+P642_VTS_Reference/IC_Current_Detector/ Demux  [port 433.001] --> P642_VTS_Reference/IC_Current_Detector/ Terminator  [port 440.001]
+P642_VTS_Reference/IC_Current_Detector/ SFunction  [port 438.001] --> P642_VTS_Reference/IC_Current_Detector/y [port 442.001]
+P642_VTS_Reference/IC_Current_Detector/I_setting [port 430.001] --> P642_VTS_Reference/IC_Current_Detector/ SFunction  [port 437.001]
+P642_VTS_Reference/IC_Current_Detector/IC [port 428.001] --> P642_VTS_Reference/IC_Current_Detector/ SFunction  [port 435.002]
+P642_VTS_Reference/S-R
+Flip-Flop/R [port 986.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Mux [port 999.001]
+P642_VTS_Reference/S-R
+Flip-Flop/S [port 941.002] --> P642_VTS_Reference/S-R
+Flip-Flop/Mux [port 998.001]
+P642_VTS_Reference/S-R
+Flip-Flop/Demux [port 989.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Memory [port 995.001]
+P642_VTS_Reference/S-R
+Flip-Flop/Demux [port 989.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Q [port 1003]
+P642_VTS_Reference/S-R
+Flip-Flop/Demux [port 989.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Q [port 1003]
+P642_VTS_Reference/S-R
+Flip-Flop/Demux [port 989.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Memory [port 995.001]
+P642_VTS_Reference/S-R
+Flip-Flop/Demux [port 990.001] --> P642_VTS_Reference/S-R
+Flip-Flop/!Q [port 1007]
+P642_VTS_Reference/S-R
+Flip-Flop/Logic [port 993.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Demux [port 988.001]
+P642_VTS_Reference/S-R
+Flip-Flop/Mux [port 1001] --> P642_VTS_Reference/S-R
+Flip-Flop/Logic [port 992.001]
+P642_VTS_Reference/S-R
+Flip-Flop/Memory [port 996.001] --> P642_VTS_Reference/S-R
+Flip-Flop/Mux [port 1000]
+P642_VTS_Reference/S-R
+Flip-Flop1/R [port 954.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Mux [port 967.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/S [port 909.002] --> P642_VTS_Reference/S-R
+Flip-Flop1/Mux [port 966.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/Demux [port 957.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Memory [port 963.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/Demux [port 957.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Q [port 971.003]
+P642_VTS_Reference/S-R
+Flip-Flop1/Demux [port 957.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Q [port 971.003]
+P642_VTS_Reference/S-R
+Flip-Flop1/Demux [port 957.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Memory [port 963.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/Demux [port 958.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/!Q [port 975.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/Logic [port 961.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Demux [port 956.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/Mux [port 969.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Logic [port 960.001]
+P642_VTS_Reference/S-R
+Flip-Flop1/Memory [port 964.001] --> P642_VTS_Reference/S-R
+Flip-Flop1/Mux [port 968.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/R [port 922.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Mux [port 935.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/S [port 888.002] --> P642_VTS_Reference/S-R
+Flip-Flop2/Mux [port 934.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/Demux [port 925.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Memory [port 931.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/Demux [port 925.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Q [port 939.003]
+P642_VTS_Reference/S-R
+Flip-Flop2/Demux [port 925.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Q [port 939.003]
+P642_VTS_Reference/S-R
+Flip-Flop2/Demux [port 925.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Memory [port 931.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/Demux [port 926.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/!Q [port 943.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/Logic [port 929.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Demux [port 924.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/Mux [port 937.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Logic [port 928.001]
+P642_VTS_Reference/S-R
+Flip-Flop2/Memory [port 932.001] --> P642_VTS_Reference/S-R
+Flip-Flop2/Mux [port 936.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/R [port 890.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Mux [port 903.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/S [port 886.003] --> P642_VTS_Reference/S-R
+Flip-Flop3/Mux [port 902.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/Demux [port 893.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Memory [port 899.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/Demux [port 893.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Q [port 907.003]
+P642_VTS_Reference/S-R
+Flip-Flop3/Demux [port 893.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Q [port 907.003]
+P642_VTS_Reference/S-R
+Flip-Flop3/Demux [port 893.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Memory [port 899.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/Demux [port 894.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/!Q [port 911.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/Logic [port 897.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Demux [port 892.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/Mux [port 905.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Logic [port 896.001]
+P642_VTS_Reference/S-R
+Flip-Flop3/Memory [port 900.001] --> P642_VTS_Reference/S-R
+Flip-Flop3/Mux [port 904.001]
+P642_VTS_Reference/Timer_20ms_Pickup/ SFunction  [port 591.001] --> P642_VTS_Reference/Timer_20ms_Pickup/ Demux  [port 587.001]
+P642_VTS_Reference/Timer_20ms_Pickup/ Demux  [port 588.001] --> P642_VTS_Reference/Timer_20ms_Pickup/ Terminator  [port 594.001]
+P642_VTS_Reference/Timer_20ms_Pickup/ SFunction  [port 592.001] --> P642_VTS_Reference/Timer_20ms_Pickup/y [port 596.001]
+P642_VTS_Reference/Timer_20ms_Pickup/input_signal [port 585.001] --> P642_VTS_Reference/Timer_20ms_Pickup/ SFunction  [port 590.002]
+P642_VTS_Reference/delta_IA_Detector/ SFunction  [port 627.001] --> P642_VTS_Reference/delta_IA_Detector/ Demux  [port 623.001]
+P642_VTS_Reference/delta_IA_Detector/ Demux  [port 624.001] --> P642_VTS_Reference/delta_IA_Detector/ Terminator  [port 631.001]
+P642_VTS_Reference/delta_IA_Detector/ SFunction  [port 629.001] --> P642_VTS_Reference/delta_IA_Detector/y [port 633.001]
+P642_VTS_Reference/delta_IA_Detector/In [port 621.001] --> P642_VTS_Reference/delta_IA_Detector/ SFunction  [port 628.001]
+P642_VTS_Reference/delta_IA_Detector/delta_IA [port 619.001] --> P642_VTS_Reference/delta_IA_Detector/ SFunction  [port 626.002]
+P642_VTS_Reference/delta_IB_Detector/ SFunction  [port 652.001] --> P642_VTS_Reference/delta_IB_Detector/ Demux  [port 648.001]
+P642_VTS_Reference/delta_IB_Detector/ Demux  [port 649.001] --> P642_VTS_Reference/delta_IB_Detector/ Terminator  [port 656.001]
+P642_VTS_Reference/delta_IB_Detector/ SFunction  [port 654.001] --> P642_VTS_Reference/delta_IB_Detector/y [port 658.001]
+P642_VTS_Reference/delta_IB_Detector/In [port 646.001] --> P642_VTS_Reference/delta_IB_Detector/ SFunction  [port 653.001]
+P642_VTS_Reference/delta_IB_Detector/delta_IB [port 644.001] --> P642_VTS_Reference/delta_IB_Detector/ SFunction  [port 651.002]
+P642_VTS_Reference/delta_IC_Detector/ SFunction  [port 677.001] --> P642_VTS_Reference/delta_IC_Detector/ Demux  [port 673.001]
+P642_VTS_Reference/delta_IC_Detector/ Demux  [port 674.001] --> P642_VTS_Reference/delta_IC_Detector/ Terminator  [port 681.001]
+P642_VTS_Reference/delta_IC_Detector/ SFunction  [port 679.001] --> P642_VTS_Reference/delta_IC_Detector/y [port 683.001]
+P642_VTS_Reference/delta_IC_Detector/In [port 671.001] --> P642_VTS_Reference/delta_IC_Detector/ SFunction  [port 678.001]
+P642_VTS_Reference/delta_IC_Detector/delta_IC [port 669.001] --> P642_VTS_Reference/delta_IC_Detector/ SFunction  [port 676.002]
+P642_VTS_Reference/tVTS Timer/ SFunction  [port 702.001] --> P642_VTS_Reference/tVTS Timer/ Demux  [port 698.001]
+P642_VTS_Reference/tVTS Timer/ Demux  [port 699.001] --> P642_VTS_Reference/tVTS Timer/ Terminator  [port 706.001]
+P642_VTS_Reference/tVTS Timer/ SFunction  [port 704.001] --> P642_VTS_Reference/tVTS Timer/y [port 708.001]
+P642_VTS_Reference/tVTS Timer/tVTS [port 696.001] --> P642_VTS_Reference/tVTS Timer/ SFunction  [port 703.001]
+P642_VTS_Reference/tVTS Timer/input_signal [port 694.001] --> P642_VTS_Reference/tVTS Timer/ SFunction  [port 701.002]
+P642_VTS_Reference/Logical
+Operator15 [port 475.001] --> P642_VTS_Reference/SLOW BLOCK [port 715.001]
+P642_VTS_Reference/Logical
+Operator27 [port 525.001] --> P642_VTS_Reference/FAST BLOCK [port 717.001]
+P642_VTS_Reference/Logical
+Operator26 [port 521.001] --> P642_VTS_Reference/INDICATION [port 719.001]
+P642_VTS_Reference/Logical
+Operator16 [port 479.001] --> P642_VTS_Reference/Logical
+Operator27 [port 523.001]
+P642_VTS_Reference/S-R
+Flip-Flop3 [port 579.001] --> P642_VTS_Reference/Logical
+Operator26 [port 520.001]
+P642_VTS_Reference/Logical
+Operator25 [port 517.001] --> P642_VTS_Reference/S-R
+Flip-Flop3 [port 577.001]
+P642_VTS_Reference/Timer_20ms_Pickup [port 583.001] --> P642_VTS_Reference/Logical
+Operator25 [port 516.001]
+P642_VTS_Reference/Logical
+Operator22 [port 504.001] --> P642_VTS_Reference/Timer_20ms_Pickup [port 582.001]
+P642_VTS_Reference/tVTS Timer [port 692.001] --> P642_VTS_Reference/Logical
+Operator25 [port 515.001]
+P642_VTS_Reference/tVTS Timer [port 692.001] --> P642_VTS_Reference/S-R
+Flip-Flop1 [port 567.001]
+P642_VTS_Reference/tVTS Timer [port 692.001] --> P642_VTS_Reference/S-R
+Flip-Flop1 [port 567.001]
+P642_VTS_Reference/tVTS Timer [port 692.001] --> P642_VTS_Reference/Logical
+Operator25 [port 515.001]
+P642_VTS_Reference/240ms_timer_Drop_off [port 330.001] --> P642_VTS_Reference/Logical
+Operator [port 449.002]
+P642_VTS_Reference/ANY_POLE_DEAD [port 169.001] --> P642_VTS_Reference/240ms_timer_Drop_off [port 329.001]
+P642_VTS_Reference/Logical
+Operator23 [port 510.001] --> P642_VTS_Reference/Logical
+Operator22 [port 506.001]
+P642_VTS_Reference/ACCELERATE_IND [port 181.001] --> P642_VTS_Reference/Logical
+Operator23 [port 509.001]
+P642_VTS_Reference/Logical
+Operator24 [port 514.001] --> P642_VTS_Reference/Logical
+Operator23 [port 508.001]
+P642_VTS_Reference/Logical
+Operator21 [port 501.001] --> P642_VTS_Reference/Logical
+Operator22 [port 502.001]
+P642_VTS_Reference/S-R
+Flip-Flop2 [port 574.001] --> P642_VTS_Reference/Logical
+Operator21 [port 499.001]
+P642_VTS_Reference/Logical
+Operator19 [port 490.001] --> P642_VTS_Reference/S-R
+Flip-Flop2 [port 572.001]
+P642_VTS_Reference/Logical
+Operator20 [port 498.001] --> P642_VTS_Reference/Logical
+Operator19 [port 489.001]
+P642_VTS_Reference/Logical
+Operator17 [port 483.001] --> P642_VTS_Reference/Logical
+Operator16 [port 478.001]
+P642_VTS_Reference/Logical
+Operator18 [port 487.001] --> P642_VTS_Reference/Logical
+Operator17 [port 482.001]
+P642_VTS_Reference/Logical
+Operator18 [port 487.001] --> P642_VTS_Reference/S-R
+Flip-Flop2 [port 573.001]
+P642_VTS_Reference/Logical
+Operator18 [port 487.001] --> P642_VTS_Reference/S-R
+Flip-Flop2 [port 573.001]
+P642_VTS_Reference/Logical
+Operator18 [port 487.001] --> P642_VTS_Reference/Logical
+Operator17 [port 482.001]
+P642_VTS_Reference/ANY_VOLTAGE_DEPENDENT_FUNCTION [port 179.001] --> P642_VTS_Reference/Logical
+Operator18 [port 485.001]
+P642_VTS_Reference/ANY_VOLTAGE_DEPENDENT_FUNCTION [port 179.001] --> P642_VTS_Reference/Logical
+Operator19 [port 488.001]
+P642_VTS_Reference/ANY_VOLTAGE_DEPENDENT_FUNCTION [port 179.001] --> P642_VTS_Reference/Logical
+Operator19 [port 488.001]
+P642_VTS_Reference/ANY_VOLTAGE_DEPENDENT_FUNCTION [port 179.001] --> P642_VTS_Reference/Logical
+Operator18 [port 485.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator24 [port 512.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator15 [port 474.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator27 [port 524.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator27 [port 524.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator15 [port 474.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator27 [port 524.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator15 [port 474.001]
+P642_VTS_Reference/VTS_BLOCKING [port 173.001] --> P642_VTS_Reference/Logical
+Operator24 [port 512.001]
+P642_VTS_Reference/Logical
+Operator14 [port 471.001] --> P642_VTS_Reference/Logical
+Operator16 [port 477.001]
+P642_VTS_Reference/Logical
+Operator14 [port 471.001] --> P642_VTS_Reference/Logical
+Operator15 [port 473.001]
+P642_VTS_Reference/Logical
+Operator14 [port 471.001] --> P642_VTS_Reference/Logical
+Operator15 [port 473.001]
+P642_VTS_Reference/Logical
+Operator14 [port 471.001] --> P642_VTS_Reference/Logical
+Operator16 [port 477.001]
+P642_VTS_Reference/MCB_VTS [port 171.001] --> P642_VTS_Reference/Logical
+Operator14 [port 470.001]
+P642_VTS_Reference/MCB_VTS [port 171.001] --> P642_VTS_Reference/Logical
+Operator26 [port 519.001]
+P642_VTS_Reference/MCB_VTS [port 171.001] --> P642_VTS_Reference/Logical
+Operator26 [port 519.001]
+P642_VTS_Reference/MCB_VTS [port 171.001] --> P642_VTS_Reference/Logical
+Operator14 [port 470.001]
+P642_VTS_Reference/S-R
+Flip-Flop1 [port 569.001] --> P642_VTS_Reference/Logical
+Operator14 [port 469.001]
+P642_VTS_Reference/Logical
+Operator13 [port 467.001] --> P642_VTS_Reference/S-R
+Flip-Flop1 [port 568.001]
+P642_VTS_Reference/Logical
+Operator13 [port 467.001] --> P642_VTS_Reference/S-R
+Flip-Flop3 [port 578.001]
+P642_VTS_Reference/Logical
+Operator13 [port 467.001] --> P642_VTS_Reference/S-R
+Flip-Flop3 [port 578.001]
+P642_VTS_Reference/Logical
+Operator13 [port 467.001] --> P642_VTS_Reference/S-R
+Flip-Flop1 [port 568.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator20 [port 496.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator22 [port 503.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator22 [port 503.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator20 [port 496.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator17 [port 481.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator17 [port 481.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator22 [port 503.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator20 [port 496.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/tVTS Timer [port 690.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/tVTS Timer [port 690.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator17 [port 481.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator22 [port 503.001]
+P642_VTS_Reference/Logical
+Operator4 [port 533.001] --> P642_VTS_Reference/Logical
+Operator20 [port 496.001]
+P642_VTS_Reference/tVTS [port 183.001] --> P642_VTS_Reference/tVTS Timer [port 691.001]
+P642_VTS_Reference/Logical
+Operator12 [port 463.001] --> P642_VTS_Reference/Logical
+Operator13 [port 466.001]
+P642_VTS_Reference/VTS_AUTORESET [port 175.001] --> P642_VTS_Reference/Logical
+Operator12 [port 462.001]
+P642_VTS_Reference/VTS_MANRESET [port 177.001] --> P642_VTS_Reference/Logical
+Operator12 [port 461.001]
+P642_VTS_Reference/Logical
+Operator11 [port 460.001] --> P642_VTS_Reference/Logical
+Operator4 [port 536.001]
+P642_VTS_Reference/S-R
+Flip-Flop [port 564.001] --> P642_VTS_Reference/Logical
+Operator11 [port 458.001]
+P642_VTS_Reference/Logical
+Operator10 [port 457.001] --> P642_VTS_Reference/S-R
+Flip-Flop [port 563.001]
+P642_VTS_Reference/Logical
+Operator10 [port 457.001] --> P642_VTS_Reference/Logical
+Operator13 [port 465.001]
+P642_VTS_Reference/Logical
+Operator10 [port 457.001] --> P642_VTS_Reference/Logical
+Operator13 [port 465.001]
+P642_VTS_Reference/Logical
+Operator10 [port 457.001] --> P642_VTS_Reference/S-R
+Flip-Flop [port 563.001]
+P642_VTS_Reference/Logical
+Operator9 [port 554.001] --> P642_VTS_Reference/S-R
+Flip-Flop [port 562.001]
+P642_VTS_Reference/Logical
+Operator8 [port 549.001] --> P642_VTS_Reference/Logical
+Operator9 [port 555.001]
+P642_VTS_Reference/delta_IC_Detector [port 667.001] --> P642_VTS_Reference/Logical
+Operator8 [port 550.001]
+P642_VTS_Reference/delta_IB_Detector [port 642.001] --> P642_VTS_Reference/Logical
+Operator8 [port 548.001]
+P642_VTS_Reference/delta_IA_Detector [port 617.001] --> P642_VTS_Reference/Logical
+Operator8 [port 547.001]
+P642_VTS_Reference/Logical
+Operator7 [port 546.001] --> P642_VTS_Reference/Logical
+Operator4 [port 535.001]
+P642_VTS_Reference/Logical
+Operator3 [port 529.001] --> P642_VTS_Reference/Logical
+Operator7 [port 544.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator4 [port 534.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator9 [port 552.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator10 [port 455.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator10 [port 455.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator9 [port 552.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator10 [port 455.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator9 [port 552.001]
+P642_VTS_Reference/Logical
+Operator2 [port 494.001] --> P642_VTS_Reference/Logical
+Operator4 [port 534.001]
+P642_VTS_Reference/Logical
+Operator6 [port 543.001] --> P642_VTS_Reference/Logical
+Operator4 [port 532.001]
+P642_VTS_Reference/Phase_Current_level_OR [port 559.001] --> P642_VTS_Reference/Logical
+Operator6 [port 541.001]
+P642_VTS_Reference/Logical
+Operator5 [port 540.001] --> P642_VTS_Reference/Logical
+Operator4 [port 531.001]
+P642_VTS_Reference/ALL_POLE_DEAD [port 323.001] --> P642_VTS_Reference/Logical
+Operator5 [port 538.001]
+P642_VTS_Reference/IA_Current_Detector [port 376.001] --> P642_VTS_Reference/Phase_Current_level_OR [port 557.001]
+P642_VTS_Reference/IC_Current_Detector [port 426.001] --> P642_VTS_Reference/Phase_Current_level_OR [port 560.001]
+P642_VTS_Reference/IA [port 185.001] --> P642_VTS_Reference/IA_Current_Detector [port 374.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IB_Current_Detector [port 400.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IC_Current_Detector [port 425.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IC_Current_Detector [port 425.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IB_Current_Detector [port 400.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IA_Current_Detector [port 375.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IA_Current_Detector [port 375.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IC_Current_Detector [port 425.001]
+P642_VTS_Reference/I_Setting [port 191.001] --> P642_VTS_Reference/IB_Current_Detector [port 400.001]
+P642_VTS_Reference/IB [port 187.001] --> P642_VTS_Reference/IB_Current_Detector [port 399.001]
+P642_VTS_Reference/IC [port 189.001] --> P642_VTS_Reference/IC_Current_Detector [port 424.001]
+P642_VTS_Reference/IB_Current_Detector [port 401.001] --> P642_VTS_Reference/Phase_Current_level_OR [port 558.001]
+P642_VTS_Reference/V2_Pole_Condition [port 607.001] --> P642_VTS_Reference/Logical
+Operator2 [port 493.001]
+P642_VTS_Reference/Logical
+Operator1 [port 454.001] --> P642_VTS_Reference/Logical
+Operator2 [port 492.001]
+P642_VTS_Reference/ . [port 327.001] --> P642_VTS_Reference/Logical
+Operator1 [port 452.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator9 [port 553.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/V2_Pole_Condition [port 606.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator3 [port 528.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator3 [port 528.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/V2_Pole_Condition [port 606.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator3 [port 528.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/V2_Pole_Condition [port 606.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator9 [port 553.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator22 [port 505.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator22 [port 505.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator3 [port 528.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/V2_Pole_Condition [port 606.001]
+P642_VTS_Reference/Logical
+Operator [port 451.001] --> P642_VTS_Reference/Logical
+Operator9 [port 553.001]
+P642_VTS_Reference/delta_IC [port 165.001] --> P642_VTS_Reference/delta_IC_Detector [port 665.001]
+P642_VTS_Reference/delta_IB [port 163.001] --> P642_VTS_Reference/delta_IB_Detector [port 640.001]
+P642_VTS_Reference/In [port 167.001] --> P642_VTS_Reference/delta_IA_Detector [port 616.001]
+P642_VTS_Reference/In [port 167.001] --> P642_VTS_Reference/delta_IB_Detector [port 641.001]
+P642_VTS_Reference/In [port 167.001] --> P642_VTS_Reference/delta_IC_Detector [port 666.001]
+P642_VTS_Reference/In [port 167.001] --> P642_VTS_Reference/delta_IC_Detector [port 666.001]
+P642_VTS_Reference/In [port 167.001] --> P642_VTS_Reference/delta_IB_Detector [port 641.001]
+P642_VTS_Reference/In [port 167.001] --> P642_VTS_Reference/delta_IA_Detector [port 616.001]
+P642_VTS_Reference/delta_IA [port 161.001] --> P642_VTS_Reference/delta_IA_Detector [port 615.001]
+P642_VTS_Reference/I2_Current_Detector [port 351.001] --> P642_VTS_Reference/Logical
+Operator3 [port 527.001]
+P642_VTS_Reference/I2_Setting [port 159.001] --> P642_VTS_Reference/I2_Current_Detector [port 350.001]
+P642_VTS_Reference/I2 [port 157.001] --> P642_VTS_Reference/I2_Current_Detector [port 349.001]
+P642_VTS_Reference/V2_Level_Detector [port 603.001] --> P642_VTS_Reference/V2_Pole_Condition [port 605.001]
+P642_VTS_Reference/V2 [port 155.001] --> P642_VTS_Reference/V2_Level_Detector [port 602.001]
+P642_VTS_Reference/VBC_Level_Detector [port 613.001] --> P642_VTS_Reference/ . [port 326.001]
+P642_VTS_Reference/VBC [port 153.001] --> P642_VTS_Reference/VBC_Level_Detector [port 612.001]
+P642_VTS_Reference/VAB_Level_Detector [port 610.001] --> P642_VTS_Reference/ . [port 325.001]
+P642_VTS_Reference/VAB [port 151.001] --> P642_VTS_Reference/VAB_Level_Detector [port 609.001]
