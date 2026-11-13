@@ -192,15 +192,17 @@ class VTSStagedModel:
             self._predict(self.stage2, STAGE2_INPUTS, stage2_inputs)
         ))
 
+        flip_flop_inputs = {}
+
         # -------------------------------------------------
         # SR FLIP-FLOP 1
         # S = 5_AND_OUT, R = NOT 4_OR_OUT
-        # Both inputs are calculated before one update.
         # -------------------------------------------------
-        sr1_out = self.sr1.update(
-            set_signal=bool(s2["5_AND_OUT"]),
-            reset_signal=not bool(s2["4_OR_OUT"])
-        )
+        flip_flop_inputs["sr1"] = {
+            "set_signal": bool(s2["5_AND_OUT"]),
+            "reset_signal": not bool(s2["4_OR_OUT"]),
+        }
+        sr1_out = self.sr1.next_state(**flip_flop_inputs["sr1"])
 
         # -------------------------------------------------
         # STAGE 3
@@ -222,10 +224,11 @@ class VTSStagedModel:
         # S = 9_AND_OUT
         # R = NOT ANY_VOLTAGE_DEPENDENT_FUNCTION
         # -------------------------------------------------
-        sr2_out = self.sr2.update(
-            set_signal=bool(s3["9_AND_OUT"]),
-            reset_signal=not bool(inputs["ANY_VOLTAGE_DEPENDENT_FUNCTION"])
-        )
+        flip_flop_inputs["sr2"] = {
+            "set_signal": bool(s3["9_AND_OUT"]),
+            "reset_signal": not bool(inputs["ANY_VOLTAGE_DEPENDENT_FUNCTION"]),
+        }
+        sr2_out = self.sr2.next_state(**flip_flop_inputs["sr2"])
 
         # -------------------------------------------------
         # STAGE 4
@@ -267,10 +270,11 @@ class VTSStagedModel:
         # SR FLIP-FLOP 3
         # S = tVTS_TIMER_OUT, R = 7_AND_OUT
         # -------------------------------------------------
-        sr3_out = self.sr3.update(
-            set_signal=bool(tvts_timer_out),
-            reset_signal=bool(s3["7_AND_OUT"])
-        )
+        flip_flop_inputs["sr3"] = {
+            "set_signal": bool(tvts_timer_out),
+            "reset_signal": bool(s3["7_AND_OUT"]),
+        }
+        sr3_out = self.sr3.next_state(**flip_flop_inputs["sr3"])
 
         # -------------------------------------------------
         # STAGE 5
@@ -297,10 +301,11 @@ class VTSStagedModel:
         # SR FLIP-FLOP 4
         # S = 7_OR_OUT, R = 7_AND_OUT
         # -------------------------------------------------
-        sr4_out = self.sr4.update(
-            set_signal=bool(s5["7_OR_OUT"]),
-            reset_signal=bool(s3["7_AND_OUT"])
-        )
+        flip_flop_inputs["sr4"] = {
+            "set_signal": bool(s5["7_OR_OUT"]),
+            "reset_signal": bool(s3["7_AND_OUT"]),
+        }
+        sr4_out = self.sr4.next_state(**flip_flop_inputs["sr4"])
 
         # -------------------------------------------------
         # FINAL STAGE 6
@@ -310,6 +315,14 @@ class VTSStagedModel:
             **s5,
             "SR_4_OUT": float(sr4_out),
         }
+
+        for name, flip_flop in (
+            ("sr1", self.sr1),
+            ("sr2", self.sr2),
+            ("sr3", self.sr3),
+            ("sr4", self.sr4),
+        ):
+            flip_flop.update(**flip_flop_inputs[name])
 
         final_outputs = dict(zip(
             STAGE6_OUTPUTS,

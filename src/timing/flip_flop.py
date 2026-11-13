@@ -15,10 +15,15 @@ class SRFlipFlop:
     def reset(self):
         self.q = False
 
-    def update(self, set_signal: bool, reset_signal: bool) -> bool:
-        if reset_signal:
-            self.q = False
-        elif set_signal:
-            self.q = True
+    def next_state(self, set_signal: bool, reset_signal: bool) -> bool:
+        """Return the state for these inputs without changing the state."""
 
+        if reset_signal:
+            return False
+        if set_signal:
+            return True
+        return self.q
+
+    def update(self, set_signal: bool, reset_signal: bool) -> bool:
+        self.q = self.next_state(set_signal, reset_signal)
         return self.q

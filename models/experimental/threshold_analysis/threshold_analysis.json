@@ -1,0 +1,6033 @@
+{
+  "diagnostic": "sequential_probability_threshold_analysis",
+  "thresholds": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "threshold_policy": "one global threshold applied to every stage output",
+  "validation_cases": [
+    "case_088",
+    "case_089",
+    "case_090",
+    "case_091",
+    "case_092",
+    "case_093",
+    "case_094",
+    "case_095",
+    "case_096",
+    "case_097",
+    "case_098",
+    "case_099",
+    "case_100",
+    "case_101",
+    "case_102",
+    "case_103",
+    "case_104",
+    "case_105",
+    "case_106",
+    "case_107",
+    "case_108"
+  ],
+  "probabilities_artifact": "sigmoid_probabilities_threshold_0.5.npz",
+  "results": {
+    "0.3": {
+      "threshold": 0.3,
+      "summary": {
+        "SLOW_BLOCK": {
+          "correct": 246017,
+          "total": 273021,
+          "accuracy": 0.9010918574029104,
+          "mismatch_count": 27004,
+          "precision": 0.9999473794990529,
+          "recall": 0.41305481893666046,
+          "f1": 0.5846177511152131,
+          "specificity": 0.9999955950047353,
+          "false_positive_rate": 4.404995264630091e-06,
+          "false_negative_rate": 0.5869451810633396,
+          "confusion_matrix": {
+            "tn": 227014,
+            "fp": 1,
+            "fn": 27003,
+            "tp": 19003
+          }
+        },
+        "FAST_BLOCK": {
+          "correct": 228020,
+          "total": 273021,
+          "accuracy": 0.8351738510957033,
+          "mismatch_count": 45001,
+          "precision": 1.0,
+          "recall": 0.43038150932887775,
+          "f1": 0.601771634381388,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.5696184906711222,
+          "confusion_matrix": {
+            "tn": 194019,
+            "fp": 0,
+            "fn": 45001,
+            "tp": 34001
+          }
+        },
+        "INDICATION": {
+          "correct": 215010,
+          "total": 273021,
+          "accuracy": 0.7875218389794192,
+          "mismatch_count": 58011,
+          "precision": 0.9999400131970967,
+          "recall": 0.4629684491186491,
+          "f1": 0.6329045036607668,
+          "specificity": 0.9999818187327657,
+          "false_positive_rate": 1.818126723432623e-05,
+          "false_negative_rate": 0.5370315508813509,
+          "confusion_matrix": {
+            "tn": 165002,
+            "fp": 3,
+            "fn": 58008,
+            "tp": 50008
+          }
+        }
+      },
+      "stage_mismatch_counts": {
+        "stage1": 132000,
+        "stage2": 132000,
+        "stage3": 275000,
+        "stage4": 0,
+        "stage5": 215022,
+        "stage6": 130016
+      },
+      "first_divergence": {
+        "stage5": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "5_OR_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990110397338867
+        },
+        "stage6": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "INDICATION",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9993626475334167
+        },
+        "stage1": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "1_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9255331158638
+        },
+        "stage2": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "4_OR_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 3.105798896285705e-05
+        },
+        "stage3": {
+          "case_id": "case_098",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "7_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990705847740173
+        }
+      },
+      "cases": [
+        {
+          "case_id": "case_088",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12001
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_089",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9995004995004995,
+              "recall": 1.0,
+              "f1": 0.9997501873594804,
+              "specificity": 0.9999090909090909,
+              "false_positive_rate": 9.09090909090909e-05,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 2001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_090",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 10001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_091",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_092",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 6001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_093",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_094",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889135747612,
+              "recall": 1.0,
+              "f1": 0.9999444537021608,
+              "specificity": 0.99975,
+              "false_positive_rate": 0.00025,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_095",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 4001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_096",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_097",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_098",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_099",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.38466271825244214,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5001,
+                "fp": 0,
+                "fn": 8000,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.38466271825244214,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5001,
+                "fp": 0,
+                "fn": 8000,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_100",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.07691716021844473,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 12001,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_101",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.8460887624028921,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 11000,
+                "fp": 0,
+                "fn": 2001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_102",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.2307514806553342,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 10001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_103",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.3077455580339974,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4001,
+                "fp": 0,
+                "fn": 9000,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.3077455580339974,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4001,
+                "fp": 0,
+                "fn": 9000,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_104",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.5384201215291131,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 6001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_105",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_106",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.30766864087377893,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 0,
+                "fn": 9001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_107",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.6922544419660026,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 4001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_108",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.7691716021844474,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 3001,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.7691716021844474,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 3001,
+                "tp": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "0.4": {
+      "threshold": 0.4,
+      "summary": {
+        "SLOW_BLOCK": {
+          "correct": 246017,
+          "total": 273021,
+          "accuracy": 0.9010918574029104,
+          "mismatch_count": 27004,
+          "precision": 0.9999473794990529,
+          "recall": 0.41305481893666046,
+          "f1": 0.5846177511152131,
+          "specificity": 0.9999955950047353,
+          "false_positive_rate": 4.404995264630091e-06,
+          "false_negative_rate": 0.5869451810633396,
+          "confusion_matrix": {
+            "tn": 227014,
+            "fp": 1,
+            "fn": 27003,
+            "tp": 19003
+          }
+        },
+        "FAST_BLOCK": {
+          "correct": 228020,
+          "total": 273021,
+          "accuracy": 0.8351738510957033,
+          "mismatch_count": 45001,
+          "precision": 1.0,
+          "recall": 0.43038150932887775,
+          "f1": 0.601771634381388,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.5696184906711222,
+          "confusion_matrix": {
+            "tn": 194019,
+            "fp": 0,
+            "fn": 45001,
+            "tp": 34001
+          }
+        },
+        "INDICATION": {
+          "correct": 215010,
+          "total": 273021,
+          "accuracy": 0.7875218389794192,
+          "mismatch_count": 58011,
+          "precision": 0.9999400131970967,
+          "recall": 0.4629684491186491,
+          "f1": 0.6329045036607668,
+          "specificity": 0.9999818187327657,
+          "false_positive_rate": 1.818126723432623e-05,
+          "false_negative_rate": 0.5370315508813509,
+          "confusion_matrix": {
+            "tn": 165002,
+            "fp": 3,
+            "fn": 58008,
+            "tp": 50008
+          }
+        }
+      },
+      "stage_mismatch_counts": {
+        "stage1": 132000,
+        "stage2": 132000,
+        "stage3": 275000,
+        "stage4": 0,
+        "stage5": 215022,
+        "stage6": 130016
+      },
+      "first_divergence": {
+        "stage5": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "5_OR_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990110397338867
+        },
+        "stage6": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "INDICATION",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9993626475334167
+        },
+        "stage1": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "1_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9255331158638
+        },
+        "stage2": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "4_OR_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 3.105798896285705e-05
+        },
+        "stage3": {
+          "case_id": "case_098",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "7_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990705847740173
+        }
+      },
+      "cases": [
+        {
+          "case_id": "case_088",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12001
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_089",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9995004995004995,
+              "recall": 1.0,
+              "f1": 0.9997501873594804,
+              "specificity": 0.9999090909090909,
+              "false_positive_rate": 9.09090909090909e-05,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 2001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_090",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 10001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_091",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_092",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 6001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_093",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_094",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889135747612,
+              "recall": 1.0,
+              "f1": 0.9999444537021608,
+              "specificity": 0.99975,
+              "false_positive_rate": 0.00025,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_095",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 4001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_096",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_097",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_098",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_099",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.38466271825244214,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5001,
+                "fp": 0,
+                "fn": 8000,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.38466271825244214,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5001,
+                "fp": 0,
+                "fn": 8000,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_100",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.07691716021844473,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 12001,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_101",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.8460887624028921,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 11000,
+                "fp": 0,
+                "fn": 2001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_102",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.2307514806553342,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 10001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_103",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.3077455580339974,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4001,
+                "fp": 0,
+                "fn": 9000,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.3077455580339974,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4001,
+                "fp": 0,
+                "fn": 9000,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_104",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.5384201215291131,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 6001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_105",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_106",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.30766864087377893,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 0,
+                "fn": 9001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_107",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.6922544419660026,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 4001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_108",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.7691716021844474,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 3001,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.7691716021844474,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 3001,
+                "tp": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "0.5": {
+      "threshold": 0.5,
+      "summary": {
+        "SLOW_BLOCK": {
+          "correct": 246017,
+          "total": 273021,
+          "accuracy": 0.9010918574029104,
+          "mismatch_count": 27004,
+          "precision": 0.9999473794990529,
+          "recall": 0.41305481893666046,
+          "f1": 0.5846177511152131,
+          "specificity": 0.9999955950047353,
+          "false_positive_rate": 4.404995264630091e-06,
+          "false_negative_rate": 0.5869451810633396,
+          "confusion_matrix": {
+            "tn": 227014,
+            "fp": 1,
+            "fn": 27003,
+            "tp": 19003
+          }
+        },
+        "FAST_BLOCK": {
+          "correct": 228020,
+          "total": 273021,
+          "accuracy": 0.8351738510957033,
+          "mismatch_count": 45001,
+          "precision": 1.0,
+          "recall": 0.43038150932887775,
+          "f1": 0.601771634381388,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.5696184906711222,
+          "confusion_matrix": {
+            "tn": 194019,
+            "fp": 0,
+            "fn": 45001,
+            "tp": 34001
+          }
+        },
+        "INDICATION": {
+          "correct": 215010,
+          "total": 273021,
+          "accuracy": 0.7875218389794192,
+          "mismatch_count": 58011,
+          "precision": 0.9999400131970967,
+          "recall": 0.4629684491186491,
+          "f1": 0.6329045036607668,
+          "specificity": 0.9999818187327657,
+          "false_positive_rate": 1.818126723432623e-05,
+          "false_negative_rate": 0.5370315508813509,
+          "confusion_matrix": {
+            "tn": 165002,
+            "fp": 3,
+            "fn": 58008,
+            "tp": 50008
+          }
+        }
+      },
+      "stage_mismatch_counts": {
+        "stage1": 132000,
+        "stage2": 132000,
+        "stage3": 275000,
+        "stage4": 0,
+        "stage5": 215022,
+        "stage6": 130016
+      },
+      "first_divergence": {
+        "stage5": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "5_OR_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990110397338867
+        },
+        "stage6": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "INDICATION",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9993626475334167
+        },
+        "stage1": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "1_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9255331158638
+        },
+        "stage2": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "4_OR_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 3.105798896285705e-05
+        },
+        "stage3": {
+          "case_id": "case_098",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "7_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990705847740173
+        }
+      },
+      "cases": [
+        {
+          "case_id": "case_088",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12001
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_089",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9995004995004995,
+              "recall": 1.0,
+              "f1": 0.9997501873594804,
+              "specificity": 0.9999090909090909,
+              "false_positive_rate": 9.09090909090909e-05,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 2001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_090",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 10001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_091",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_092",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 6001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_093",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_094",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889135747612,
+              "recall": 1.0,
+              "f1": 0.9999444537021608,
+              "specificity": 0.99975,
+              "false_positive_rate": 0.00025,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_095",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 4001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_096",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_097",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_098",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_099",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.38466271825244214,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5001,
+                "fp": 0,
+                "fn": 8000,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.38466271825244214,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5001,
+                "fp": 0,
+                "fn": 8000,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_100",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.07691716021844473,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 12001,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_101",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.8460887624028921,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 11000,
+                "fp": 0,
+                "fn": 2001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_102",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.2307514806553342,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 10001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_103",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.3077455580339974,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4001,
+                "fp": 0,
+                "fn": 9000,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.3077455580339974,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4001,
+                "fp": 0,
+                "fn": 9000,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_104",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.5384201215291131,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 6001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_105",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_106",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.30766864087377893,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 0,
+                "fn": 9001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_107",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.6922544419660026,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 4001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_108",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.7691716021844474,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 3001,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.15391123759710792,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 11000,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.7691716021844474,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 3001,
+                "tp": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "0.6": {
+      "threshold": 0.6,
+      "summary": {
+        "SLOW_BLOCK": {
+          "correct": 266016,
+          "total": 273021,
+          "accuracy": 0.9743426329842759,
+          "mismatch_count": 7005,
+          "precision": 0.9999230907273053,
+          "recall": 0.8478024605486241,
+          "f1": 0.9176008375189676,
+          "specificity": 0.9999867850142061,
+          "false_positive_rate": 1.3214985793890272e-05,
+          "false_negative_rate": 0.1521975394513759,
+          "confusion_matrix": {
+            "tn": 227012,
+            "fp": 3,
+            "fn": 7002,
+            "tp": 39004
+          }
+        },
+        "FAST_BLOCK": {
+          "correct": 261020,
+          "total": 273021,
+          "accuracy": 0.9560436742961164,
+          "mismatch_count": 12001,
+          "precision": 1.0,
+          "recall": 0.8480924533556112,
+          "f1": 0.9178030588412567,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.15190754664438874,
+          "confusion_matrix": {
+            "tn": 194019,
+            "fp": 0,
+            "fn": 12001,
+            "tp": 67001
+          }
+        },
+        "INDICATION": {
+          "correct": 235009,
+          "total": 273021,
+          "accuracy": 0.8607726145607847,
+          "mismatch_count": 38012,
+          "precision": 0.9999285857114292,
+          "recall": 0.648135461413124,
+          "f1": 0.7864854238049767,
+          "specificity": 0.9999696978879428,
+          "false_positive_rate": 3.0302112057210386e-05,
+          "false_negative_rate": 0.351864538586876,
+          "confusion_matrix": {
+            "tn": 165000,
+            "fp": 5,
+            "fn": 38007,
+            "tp": 70009
+          }
+        }
+      },
+      "stage_mismatch_counts": {
+        "stage1": 88000,
+        "stage2": 88000,
+        "stage3": 165000,
+        "stage4": 0,
+        "stage5": 142024,
+        "stage6": 57018
+      },
+      "first_divergence": {
+        "stage5": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "5_OR_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990110397338867
+        },
+        "stage6": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "INDICATION",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9993626475334167
+        },
+        "stage1": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "1_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9255331158638
+        },
+        "stage2": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "4_OR_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 3.105798896285705e-05
+        },
+        "stage3": {
+          "case_id": "case_100",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "6_AND_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 0.0005663224146701396
+        }
+      },
+      "cases": [
+        {
+          "case_id": "case_088",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12001
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_089",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9995004995004995,
+              "recall": 1.0,
+              "f1": 0.9997501873594804,
+              "specificity": 0.9999090909090909,
+              "false_positive_rate": 9.09090909090909e-05,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 2001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_090",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 10001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_091",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_092",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 6001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_093",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_094",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889135747612,
+              "recall": 1.0,
+              "f1": 0.9999444537021608,
+              "specificity": 0.99975,
+              "false_positive_rate": 0.00025,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_095",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 4001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_096",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_097",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_098",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_099",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998750156230471,
+              "recall": 1.0,
+              "f1": 0.9999375039060059,
+              "specificity": 0.9998000399920016,
+              "false_positive_rate": 0.0001999600079984003,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 8000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998750156230471,
+              "recall": 1.0,
+              "f1": 0.9999375039060059,
+              "specificity": 0.9998000399920016,
+              "false_positive_rate": 0.0001999600079984003,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 8000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_100",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.07691716021844473,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 12001,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_101",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.8460887624028921,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 11000,
+                "fp": 0,
+                "fn": 2001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_102",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.2307514806553342,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 10001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_103",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_104",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.5384201215291131,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 6001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_105",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_106",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.30766864087377893,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 0,
+                "fn": 9001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_107",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.6922544419660026,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 4001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_108",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        }
+      ]
+    },
+    "0.7": {
+      "threshold": 0.7,
+      "summary": {
+        "SLOW_BLOCK": {
+          "correct": 266016,
+          "total": 273021,
+          "accuracy": 0.9743426329842759,
+          "mismatch_count": 7005,
+          "precision": 0.9999230907273053,
+          "recall": 0.8478024605486241,
+          "f1": 0.9176008375189676,
+          "specificity": 0.9999867850142061,
+          "false_positive_rate": 1.3214985793890272e-05,
+          "false_negative_rate": 0.1521975394513759,
+          "confusion_matrix": {
+            "tn": 227012,
+            "fp": 3,
+            "fn": 7002,
+            "tp": 39004
+          }
+        },
+        "FAST_BLOCK": {
+          "correct": 261020,
+          "total": 273021,
+          "accuracy": 0.9560436742961164,
+          "mismatch_count": 12001,
+          "precision": 1.0,
+          "recall": 0.8480924533556112,
+          "f1": 0.9178030588412567,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.15190754664438874,
+          "confusion_matrix": {
+            "tn": 194019,
+            "fp": 0,
+            "fn": 12001,
+            "tp": 67001
+          }
+        },
+        "INDICATION": {
+          "correct": 235009,
+          "total": 273021,
+          "accuracy": 0.8607726145607847,
+          "mismatch_count": 38012,
+          "precision": 0.9999285857114292,
+          "recall": 0.648135461413124,
+          "f1": 0.7864854238049767,
+          "specificity": 0.9999696978879428,
+          "false_positive_rate": 3.0302112057210386e-05,
+          "false_negative_rate": 0.351864538586876,
+          "confusion_matrix": {
+            "tn": 165000,
+            "fp": 5,
+            "fn": 38007,
+            "tp": 70009
+          }
+        }
+      },
+      "stage_mismatch_counts": {
+        "stage1": 88000,
+        "stage2": 88000,
+        "stage3": 165000,
+        "stage4": 0,
+        "stage5": 142024,
+        "stage6": 57018
+      },
+      "first_divergence": {
+        "stage5": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "5_OR_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9990110397338867
+        },
+        "stage6": {
+          "case_id": "case_089",
+          "row": 10999,
+          "time": 10.999,
+          "signal": "INDICATION",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9993626475334167
+        },
+        "stage1": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "1_AND_OUT",
+          "expected": 0,
+          "actual": 1,
+          "probability": 0.9255331158638
+        },
+        "stage2": {
+          "case_id": "case_097",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "4_OR_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 3.105798896285705e-05
+        },
+        "stage3": {
+          "case_id": "case_100",
+          "row": 1000,
+          "time": 1.0,
+          "signal": "6_AND_OUT",
+          "expected": 1,
+          "actual": 0,
+          "probability": 0.0005663224146701396
+        }
+      },
+      "cases": [
+        {
+          "case_id": "case_088",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12001
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 0,
+                "tp": 7002
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_089",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9995004995004995,
+              "recall": 1.0,
+              "f1": 0.9997501873594804,
+              "specificity": 0.9999090909090909,
+              "false_positive_rate": 9.09090909090909e-05,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 2001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_090",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 10001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_091",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_092",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 6001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_093",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_094",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889135747612,
+              "recall": 1.0,
+              "f1": 0.9999444537021608,
+              "specificity": 0.99975,
+              "false_positive_rate": 0.00025,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 3999,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_095",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 4001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_096",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_097",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_098",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_099",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998750156230471,
+              "recall": 1.0,
+              "f1": 0.9999375039060059,
+              "specificity": 0.9998000399920016,
+              "false_positive_rate": 0.0001999600079984003,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 8000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998750156230471,
+              "recall": 1.0,
+              "f1": 0.9999375039060059,
+              "specificity": 0.9998000399920016,
+              "false_positive_rate": 0.0001999600079984003,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 5000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 8000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_100",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 0.07691716021844473,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 1000,
+                "fp": 0,
+                "fn": 12001,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.46142604415044997,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 5999,
+                "fp": 0,
+                "fn": 7002,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_101",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.8460887624028921,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 11000,
+                "fp": 0,
+                "fn": 2001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_102",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.2307514806553342,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 3000,
+                "fp": 0,
+                "fn": 10001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_103",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.9999230828397816,
+              "precision": 0.9998889012331963,
+              "recall": 1.0,
+              "f1": 0.9999444475306927,
+              "specificity": 0.9997500624843789,
+              "false_positive_rate": 0.00024993751562109475,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 1,
+                "fn": 0,
+                "tp": 9000
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_104",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.5384201215291131,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 7000,
+                "fp": 0,
+                "fn": 6001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_105",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_106",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.30766864087377893,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 4000,
+                "fp": 0,
+                "fn": 9001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_107",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 13001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 0
+              }
+            },
+            "INDICATION": {
+              "accuracy": 0.6922544419660026,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0,
+              "confusion_matrix": {
+                "tn": 9000,
+                "fp": 0,
+                "fn": 4001,
+                "tp": 0
+              }
+            }
+          }
+        },
+        {
+          "case_id": "case_108",
+          "rows": 13001,
+          "outputs": {
+            "SLOW_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            },
+            "FAST_BLOCK": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 2001,
+                "fp": 0,
+                "fn": 0,
+                "tp": 11000
+              }
+            },
+            "INDICATION": {
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "specificity": 1.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.0,
+              "confusion_matrix": {
+                "tn": 10000,
+                "fp": 0,
+                "fn": 0,
+                "tp": 3001
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "post_sync_baseline_summary": {
+    "SLOW_BLOCK": {
+      "correct": 246017,
+      "total": 273021,
+      "accuracy": 0.9010918574029104,
+      "mismatch_count": 27004,
+      "precision": 0.9999473794990529,
+      "recall": 0.41305481893666046,
+      "f1": 0.5846177511152131,
+      "specificity": 0.9999955950047353,
+      "false_positive_rate": 4.404995264630091e-06,
+      "false_negative_rate": 0.5869451810633396,
+      "confusion_matrix": {
+        "tn": 227014,
+        "fp": 1,
+        "fn": 27003,
+        "tp": 19003
+      }
+    },
+    "FAST_BLOCK": {
+      "correct": 228020,
+      "total": 273021,
+      "accuracy": 0.8351738510957033,
+      "mismatch_count": 45001,
+      "precision": 1.0,
+      "recall": 0.43038150932887775,
+      "f1": 0.601771634381388,
+      "specificity": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.5696184906711222,
+      "confusion_matrix": {
+        "tn": 194019,
+        "fp": 0,
+        "fn": 45001,
+        "tp": 34001
+      }
+    },
+    "INDICATION": {
+      "correct": 215010,
+      "total": 273021,
+      "accuracy": 0.7875218389794192,
+      "mismatch_count": 58011,
+      "precision": 0.9999400131970967,
+      "recall": 0.4629684491186491,
+      "f1": 0.6329045036607668,
+      "specificity": 0.9999818187327657,
+      "false_positive_rate": 1.818126723432623e-05,
+      "false_negative_rate": 0.5370315508813509,
+      "confusion_matrix": {
+        "tn": 165002,
+        "fp": 3,
+        "fn": 58008,
+        "tp": 50008
+      }
+    }
+  },
+  "notes": [
+    "Thresholds were exploratory and were not selected using validation labels.",
+    "All threshold runs used the current synchronized VTSStagedModel state order.",
+    "The 0.5 probability artifact contains raw sigmoid probabilities before binary thresholding."
+  ]
+}

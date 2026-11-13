@@ -463,6 +463,60 @@ reference-input report.
   checkpoint replacement. Further correction requires a separate approved
   investigation.
 
+### 2026-11-10 — Synchronize SR flip-flop state commits
+
+- **Decision:** Compute all four SR flip-flop next states from captured
+  same-timestep Set/Reset inputs without mutating state, then commit SR1
+  through SR4 together after the Stage 6 inputs are assembled.
+- **Reason:** The staged model previously called `update()` at four separate
+  points. `next_state()` preserves the existing reset-priority behavior and
+  lets downstream stages consume the same logical next-state values while
+  preventing an earlier state mutation from affecting later input capture.
+- **Alternatives considered:** Reordering signal expressions, changing timer
+  logic, changing neural stages, or modifying the dataset were rejected.
+- **Trade-offs:** State commits are synchronized, while the existing Boolean
+  expressions, signal connections, and downstream next-state values remain
+  unchanged.
+- **Evidence:** `src/timing/flip_flop.py`,
+  `src/models/vts_staged_model.py`, `tests/test_timing.py`, and
+  `tests/test_vts_staged_model.py`.
+- **Result:** Focused project tests passed: 8 tests passed. The staged-model
+  regression confirms all four inputs are captured before any update, all four
+  states commit to the expected values, and simultaneous Set/Reset retains
+  reset priority. Source compilation also passed.
+- **Status:** Implemented and test-verified for the coded discrete simulation
+  order. Dataset, checkpoints, timer logic, and neural architectures were not
+  modified.
+
+### 2026-11-10 — Post-synchronization integrated evaluation
+
+- **Decision:** Evaluate the synchronized `VTSStagedModel` using
+  `stage1_corrected_best.pt`, the existing Stage 2-6 checkpoints, and the
+  unchanged validation cases `case_088` through `case_108`.
+- **Reason:** This is the required final verification after synchronizing all
+  four SR flip-flop state commits; it is not an optimization or retraining
+  experiment.
+- **Alternatives considered:** Retraining, changing thresholds, modifying the
+  dataset, or changing model architecture were rejected and not performed.
+- **Trade-offs:** Reusing the established evaluator makes the result directly
+  comparable with the baseline and corrected Stage 1 reports, while the
+  separate output preserves both historical and post-fix artifacts.
+- **Evidence:** `models/trained/integrated_evaluation_post_sync.json`,
+  `scripts/training/evaluate_integrated_model.py`, and the synchronized
+  `src/models/vts_staged_model.py`.
+- **Result:** The 273,021-row evaluation produced the same metrics and
+  confusion matrices as the previous baseline and corrected Stage 1 reports:
+  `SLOW_BLOCK` accuracy 90.1092% with 27,004 mismatches,
+  `FAST_BLOCK` accuracy 83.5174% with 45,001 mismatches, and `INDICATION`
+  accuracy 78.7522% with 58,011 mismatches. The corresponding confusion
+  matrices were unchanged (`SLOW_BLOCK`: TN 227,014, FP 1, FN 27,003,
+  TP 19,003; `FAST_BLOCK`: TN 194,019, FP 0, FN 45,001, TP 34,001;
+  `INDICATION`: TN 165,002, FP 3, FN 58,008, TP 50,008).
+- **Status:** Evaluation completed; synchronization is verified by tests and
+  did not change aggregate final outputs on this validation set. The model
+  remains below a protection-grade end-to-end acceptance target because of
+  the large false-negative counts.
+
 ## Permanent update policy
 
 For every future meaningful architectural, algorithmic, implementation,
