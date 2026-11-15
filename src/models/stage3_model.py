@@ -2,6 +2,8 @@
 import torch
 import torch.nn as nn
 
+from src.models.conditional_mlp_film import FILM_SETTINGS, FiLMConditioner, apply_film
+
 
 STAGE3_INPUTS = [
     "ALL_POLE_DEAD",
@@ -23,8 +25,12 @@ STAGE3_OUTPUTS = [
 
 class Stage3MLP(nn.Module):
 
-    def __init__(self, hidden_dim=32):
+    def __init__(self, hidden_dim=32, settings_dim=len(FILM_SETTINGS)):
         super().__init__()
+        self.film6 = FiLMConditioner(settings_dim, hidden_dim)
+        self.film7 = FiLMConditioner(settings_dim, hidden_dim)
+        self.film8 = FiLMConditioner(settings_dim, hidden_dim)
+        self.film9 = FiLMConditioner(settings_dim, hidden_dim)
 
         # 6-AND: 5 inputs
         self.gate6 = nn.Sequential(
@@ -54,7 +60,7 @@ class Stage3MLP(nn.Module):
             nn.Linear(hidden_dim, 1)
         )
 
-    def forward(self, signals):
+    def forward(self, signals, settings=None):
 
         all_pole_dead = signals[:, 0:1]
         or1 = signals[:, 1:2]
@@ -73,12 +79,18 @@ class Stage3MLP(nn.Module):
             1 - sr1
         ], dim=1)
 
-        logits6 = self.gate6(gate6_inputs)
+        features6 = self.gate6[0](gate6_inputs)
+        if settings is not None:
+            features6 = apply_film(features6, settings, self.film6)
+        logits6 = self.gate6[2](torch.relu(features6))
         and6 = torch.sigmoid(logits6)
 
         # 7-AND
         gate7_inputs = torch.cat([1 - or4, or3], dim=1)
-        logits7 = self.gate7(gate7_inputs)
+        features7 = self.gate7[0](gate7_inputs)
+        if settings is not None:
+            features7 = apply_film(features7, settings, self.film7)
+        logits7 = self.gate7[2](torch.relu(features7))
 
         # 8-AND
         gate8_inputs = torch.cat([
@@ -86,7 +98,10 @@ class Stage3MLP(nn.Module):
             and6
         ], dim=1)
 
-        logits8 = self.gate8(gate8_inputs)
+        features8 = self.gate8[0](gate8_inputs)
+        if settings is not None:
+            features8 = apply_film(features8, settings, self.film8)
+        logits8 = self.gate8[2](torch.relu(features8))
 
         # 9-AND
         gate9_inputs = torch.cat([
@@ -94,14 +109,17 @@ class Stage3MLP(nn.Module):
             1 - and6
         ], dim=1)
 
-        logits9 = self.gate9(gate9_inputs)
+        features9 = self.gate9[0](gate9_inputs)
+        if settings is not None:
+            features9 = apply_film(features9, settings, self.film9)
+        logits9 = self.gate9[2](torch.relu(features9))
 
         return torch.cat([
             logits6, logits7, logits8, logits9
         ], dim=1)
 
-    def predict_binary(self, signals):
-        return (torch.sigmoid(self.forward(signals)) >= 0.5).float()
+    def predict_binary(self, signals, settings=None):
+        return (torch.sigmoid(self.forward(signals, settings)) >= 0.5).float()
 
 
 if __name__ == "__main__":

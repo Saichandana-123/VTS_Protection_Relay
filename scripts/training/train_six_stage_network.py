@@ -17,11 +17,12 @@ from src.models.stage3_model import Stage3MLP
 from src.models.stage4_model import Stage4MLP
 from src.models.stage5_model import Stage5MLP
 from src.models.stage6_model import Stage6MLP
+from src.models.conditional_mlp_film import FILM_SETTINGS
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 DATASET = ROOT / "data" / "simulink_dataset" / "vts_training_dataset.csv"
-OUTPUT_DIR = ROOT / "models" / "trained"
+OUTPUT_DIR = ROOT / "models" / "trained" / "film"
 SEED = 20261104
 EPOCHS = 12
 PATIENCE = 3
@@ -82,14 +83,23 @@ def set_seed() -> None:
 def load_stage_data(
     inputs: Sequence[str], targets: Sequence[str], train_cases: set[str],
 ) -> Tuple[TensorDataset, TensorDataset]:
-    columns = ["case_id", *inputs, *targets]
+    columns = ["case_id", *inputs, *targets, *FILM_SETTINGS]
     frame = pd.read_csv(DATASET, usecols=columns)
     frame["case_id"] = frame["case_id"].astype(str)
     train_mask = frame["case_id"].isin(train_cases).to_numpy()
     x = frame[list(inputs)].to_numpy(dtype=np.float32)
     y = frame[list(targets)].to_numpy(dtype=np.float32)
-    train = TensorDataset(torch.from_numpy(x[train_mask]), torch.from_numpy(y[train_mask]))
-    valid = TensorDataset(torch.from_numpy(x[~train_mask]), torch.from_numpy(y[~train_mask]))
+    settings = frame[list(FILM_SETTINGS)].to_numpy(dtype=np.float32)
+    train = TensorDataset(
+        torch.from_numpy(x[train_mask]),
+        torch.from_numpy(settings[train_mask]),
+        torch.from_numpy(y[train_mask]),
+    )
+    valid = TensorDataset(
+        torch.from_numpy(x[~train_mask]),
+        torch.from_numpy(settings[~train_mask]),
+        torch.from_numpy(y[~train_mask]),
+    )
     return train, valid
 
 
@@ -100,8 +110,8 @@ def evaluate(model: nn.Module, loader: DataLoader, device: torch.device) -> Tupl
     total_values = 0
     model.eval()
     with torch.no_grad():
-        for x, y in loader:
-            logits = model(x.to(device))
+        for x, settings, y in loader:
+            logits = model(x.to(device), settings.to(device))
             y_device = y.to(device)
             total_loss += float(loss_fn(logits, y_device)) * y.numel()
             total_correct += int(((torch.sigmoid(logits) >= 0.5) == y_device.bool()).sum())
@@ -116,7 +126,7 @@ def train_stage(
     train_data, valid_data = load_stage_data(inputs, targets, train_cases)
     train_loader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
     valid_loader = DataLoader(valid_data, batch_size=BATCH_SIZE, shuffle=False)
-    model = MODELS[name]().to(device)
+    model = MODELS[name](settings_dim=len(FILM_SETTINGS)).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
     loss_fn = nn.BCEWithLogitsLoss()
     best_loss = float("inf")
@@ -126,9 +136,9 @@ def train_stage(
 
     for epoch in range(1, EPOCHS + 1):
         model.train()
-        for x, y in train_loader:
+        for x, settings, y in train_loader:
             optimizer.zero_grad(set_to_none=True)
-            loss = loss_fn(model(x.to(device)), y.to(device))
+            loss = loss_fn(model(x.to(device), settings.to(device)), y.to(device))
             loss.backward()
             optimizer.step()
 
@@ -164,6 +174,11 @@ def train_stage(
         "stage": name,
         "inputs": list(inputs),
         "targets": list(targets),
+        "film": {
+            "settings": list(FILM_SETTINGS),
+            "hidden_dim": 32,
+            "conditioning": "gamma(settings) * hidden + beta(settings)",
+        },
         "model_state_dict": best_state,
     }, checkpoint_path)
     final_train = evaluate(model, train_loader, device)

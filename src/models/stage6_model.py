@@ -2,6 +2,8 @@
 import torch
 import torch.nn as nn
 
+from src.models.conditional_mlp_film import FILM_SETTINGS, FiLMConditioner, apply_film
+
 
 STAGE6_INPUTS = [
     "5_OR_OUT",
@@ -20,8 +22,11 @@ STAGE6_OUTPUTS = [
 
 class Stage6MLP(nn.Module):
 
-    def __init__(self, hidden_dim=32):
+    def __init__(self, hidden_dim=32, settings_dim=len(FILM_SETTINGS)):
         super().__init__()
+        self.film11 = FiLMConditioner(settings_dim, hidden_dim)
+        self.film12 = FiLMConditioner(settings_dim, hidden_dim)
+        self.film8 = FiLMConditioner(settings_dim, hidden_dim)
 
         self.gate11 = nn.Sequential(
             nn.Linear(2, hidden_dim),
@@ -41,7 +46,7 @@ class Stage6MLP(nn.Module):
             nn.Linear(hidden_dim, 1),
         )
 
-    def forward(self, signals):
+    def forward(self, signals, settings=None):
 
         or5 = signals[:, 0:1]
         or6 = signals[:, 1:2]
@@ -49,25 +54,28 @@ class Stage6MLP(nn.Module):
         mcb_vts_opto = signals[:, 3:4]
         sr4 = signals[:, 4:5]
 
-        slow_logits = self.gate11(
-            torch.cat([or5, vts_blocking], dim=1)
-        )
+        features11 = self.gate11[0](torch.cat([or5, vts_blocking], dim=1))
+        if settings is not None:
+            features11 = apply_film(features11, settings, self.film11)
+        slow_logits = self.gate11[2](torch.relu(features11))
 
-        fast_logits = self.gate12(
-            torch.cat([or6, vts_blocking], dim=1)
-        )
+        features12 = self.gate12[0](torch.cat([or6, vts_blocking], dim=1))
+        if settings is not None:
+            features12 = apply_film(features12, settings, self.film12)
+        fast_logits = self.gate12[2](torch.relu(features12))
 
-        indication_logits = self.gate8(
-            torch.cat([mcb_vts_opto, sr4], dim=1)
-        )
+        features8 = self.gate8[0](torch.cat([mcb_vts_opto, sr4], dim=1))
+        if settings is not None:
+            features8 = apply_film(features8, settings, self.film8)
+        indication_logits = self.gate8[2](torch.relu(features8))
 
         return torch.cat(
             [slow_logits, fast_logits, indication_logits],
             dim=1
         )
 
-    def predict_binary(self, signals):
-        return (torch.sigmoid(self.forward(signals)) >= 0.5).float()
+    def predict_binary(self, signals, settings=None):
+        return (torch.sigmoid(self.forward(signals, settings)) >= 0.5).float()
 
 
 if __name__ == "__main__":

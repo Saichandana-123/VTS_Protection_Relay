@@ -239,3 +239,10 @@ the evaluator is hard-coded to the validation directory/list, and several
 workflow/checkpoint metadata inconsistencies require controlled handling.
 
 Independent generalization has therefore **not yet been demonstrated**.
+
+
+## FiLM status update ? 2026-11-15
+
+The final six-stage FiLM model has since completed training and sequential validation. It used the same 87/21 case split within the original 108-case Simulink campaign, so the audit conclusion remains: no independent generalization test exists. Final FiLM validation metrics at threshold 0.5 are SLOW_BLOCK accuracy/precision/recall/F1 99.9989/99.9935/100/99.9967%; FAST_BLOCK 100/100/100/100%; INDICATION 95.9684/99.9948/89.8145/94.6316%. Source: `models/trained/film/integrated_evaluation.json`.
+
+A two-setting replay changed predictions without retraining, but case-100 Simulink-derived signals were frozen and no changed-setting labels were regenerated. This is a sensitivity demonstration, not unseen-setting accuracy. Analog detector generalization, hardware-in-the-loop, field/noise, real-time, and protection-safety claims remain unverified. See `BTP_Experimental_Results.md` and `results/film_results_summary.md` for complete metrics and interpretation.

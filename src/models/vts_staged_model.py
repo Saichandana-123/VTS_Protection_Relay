@@ -8,6 +8,7 @@ Call step() once per simulation timestep.
 
 import torch
 
+from src.models.conditional_mlp_film import FILM_SETTINGS
 from src.models.stage1_model import Stage1MLP, STAGE1_INPUTS, STAGE1_OUTPUTS
 from src.models.stage2_model import Stage2MLP, STAGE2_INPUTS, STAGE2_OUTPUTS
 from src.models.stage3_model import Stage3MLP, STAGE3_INPUTS, STAGE3_OUTPUTS
@@ -26,16 +27,19 @@ class VTSStagedModel:
         sample_time_s=0.001,
         timer20_mode="pickup",
         tvts_mode="pickup",
+        film_conditioned=False,
     ):
         self.sample_time_s = sample_time_s
 
         # Six ML layers
-        self.stage1 = Stage1MLP()
-        self.stage2 = Stage2MLP()
-        self.stage3 = Stage3MLP()
-        self.stage4 = Stage4MLP()
-        self.stage5 = Stage5MLP()
-        self.stage6 = Stage6MLP()
+        self.film_conditioned = film_conditioned
+        stage_kwargs = {"settings_dim": len(FILM_SETTINGS)} if film_conditioned else {}
+        self.stage1 = Stage1MLP(**stage_kwargs)
+        self.stage2 = Stage2MLP(**stage_kwargs)
+        self.stage3 = Stage3MLP(**stage_kwargs)
+        self.stage4 = Stage4MLP(**stage_kwargs)
+        self.stage5 = Stage5MLP(**stage_kwargs)
+        self.stage6 = Stage6MLP(**stage_kwargs)
 
         for model in [
             self.stage1, self.stage2, self.stage3,
@@ -106,7 +110,7 @@ class VTSStagedModel:
         )
 
     @staticmethod
-    def _predict(model, input_names, values):
+    def _predict(model, input_names, values, film_conditioned=True):
         """Run one ML stage and return its binary outputs."""
 
         missing = [name for name in input_names if name not in values]
@@ -120,11 +124,30 @@ class VTSStagedModel:
             [[float(values[name]) for name in input_names]],
             dtype=torch.float32
         )
+        settings = None
+        if film_conditioned:
+            missing_settings = [
+                name for name in FILM_SETTINGS if name not in values
+            ]
+            if missing_settings:
+                raise KeyError(
+                    f"Missing FiLM settings for {model.__class__.__name__}: "
+                    f"{missing_settings}"
+                )
+            settings = torch.tensor(
+                [[float(values[name]) for name in FILM_SETTINGS]],
+                dtype=torch.float32,
+            )
 
         with torch.no_grad():
-            output = model.predict_binary(tensor)
+            output = model.predict_binary(tensor, settings)
 
         return output[0].tolist()
+
+    def _predict_stage(self, model, input_names, values):
+        if self.film_conditioned:
+            return self._predict(model, input_names, values, True)
+        return self._predict(model, input_names, values)
 
     def step(self, inputs):
         """
@@ -168,7 +191,7 @@ class VTSStagedModel:
         # -------------------------------------------------
         s1 = dict(zip(
             STAGE1_OUTPUTS,
-            self._predict(self.stage1, STAGE1_INPUTS, inputs)
+            self._predict_stage(self.stage1, STAGE1_INPUTS, inputs)
         ))
 
         # -------------------------------------------------
@@ -189,7 +212,7 @@ class VTSStagedModel:
 
         s2 = dict(zip(
             STAGE2_OUTPUTS,
-            self._predict(self.stage2, STAGE2_INPUTS, stage2_inputs)
+            self._predict_stage(self.stage2, STAGE2_INPUTS, stage2_inputs)
         ))
 
         flip_flop_inputs = {}
@@ -216,7 +239,7 @@ class VTSStagedModel:
 
         s3 = dict(zip(
             STAGE3_OUTPUTS,
-            self._predict(self.stage3, STAGE3_INPUTS, stage3_inputs)
+            self._predict_stage(self.stage3, STAGE3_INPUTS, stage3_inputs)
         ))
 
         # -------------------------------------------------
@@ -244,7 +267,7 @@ class VTSStagedModel:
 
         s4 = dict(zip(
             STAGE4_OUTPUTS,
-            self._predict(self.stage4, STAGE4_INPUTS, stage4_inputs)
+            self._predict_stage(self.stage4, STAGE4_INPUTS, stage4_inputs)
         ))
 
         # -------------------------------------------------
@@ -294,7 +317,7 @@ class VTSStagedModel:
         # Its old label 10_TIMER_OUT is corrected here.
         s5 = dict(zip(
             STAGE5_OUTPUTS,
-            self._predict(self.stage5, STAGE5_INPUTS, stage5_inputs)
+            self._predict_stage(self.stage5, STAGE5_INPUTS, stage5_inputs)
         ))
 
         # -------------------------------------------------
@@ -326,7 +349,7 @@ class VTSStagedModel:
 
         final_outputs = dict(zip(
             STAGE6_OUTPUTS,
-            self._predict(self.stage6, STAGE6_INPUTS, stage6_inputs)
+            self._predict_stage(self.stage6, STAGE6_INPUTS, stage6_inputs)
         ))
 
         # Return intermediate and final signals.

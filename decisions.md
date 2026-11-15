@@ -528,3 +528,14 @@ configuration, or experimental decision:
 4. Preserve prior entries; do not silently rewrite or remove history.
 5. Mark unresolved concerns explicitly and update their status only when
    evidence is collected.
+
+
+## 2026-11-15 ? Final FiLM implementation and evaluation record
+
+- **Architecture decision:** retain six modular MLP stages and condition each stage with FiLM using `I_SETTING`, `I2_SETTING`, and `tVTS`; keep timers and four synchronized SR flip-flops deterministic in `VTSStagedModel`. This gives settings an inference-time conditioning path while preserving explicit state/timing behavior.
+- **Training:** use existing `scripts/training/train_six_stage_network.py`; seed 20261104; CPU; Adam 1e-3; batch 4096; BCE-with-logits; 12 epochs/stage; best validation-loss checkpoint. Split is 87 train cases / 21 validation cases (088?108). No new run is authorized by this record.
+- **Evaluation:** use `scripts/training/evaluate_film_integrated.py`, all six FiLM checkpoints, case-wise sequential inference, threshold 0.5 without tuning, compare final outputs to Simulink-derived labels over 273,021 rows.
+- **Final FiLM results:** SLOW_BLOCK accuracy/precision/recall/F1 = 99.9989/99.9935/100/99.9967%; FAST_BLOCK = 100/100/100/100%; INDICATION = 95.9684/99.9948/89.8145/94.6316%. Confusion counts are recorded in `models/trained/film/integrated_evaluation.json`.
+- **Settings check:** same checkpoint set, no optimizer update, frozen case_100 sequence replay under two observed setting tuples changed all three final outputs. This is sensitivity only; alternative-setting Simulink labels were not regenerated.
+- **Limitations:** validation is within the original 108-case campaign, not an independent test; analog detector generalization, field/noise, HIL, real-time and protection-grade safety are not established.
+- **Artifacts:** `results/film_results_summary.md`, `results/figures/`, and `models/trained/film/`. Historical non-FiLM decisions/results remain above and must not be conflated with FiLM results.

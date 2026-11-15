@@ -1,0 +1,84 @@
+{
+  "status": "existing completed evaluation; pre-FiLM baseline, not the current FiLM model",
+  "source_file": "models/trained/integrated_evaluation_post_sync.json",
+  "validation_cases": [
+    "case_088",
+    "case_089",
+    "case_090",
+    "case_091",
+    "case_092",
+    "case_093",
+    "case_094",
+    "case_095",
+    "case_096",
+    "case_097",
+    "case_098",
+    "case_099",
+    "case_100",
+    "case_101",
+    "case_102",
+    "case_103",
+    "case_104",
+    "case_105",
+    "case_106",
+    "case_107",
+    "case_108"
+  ],
+  "total_rows": 273021,
+  "outputs": {
+    "SLOW_BLOCK": {
+      "correct": 246017,
+      "total": 273021,
+      "accuracy": 0.9010918574029104,
+      "mismatch_count": 27004,
+      "precision": 0.9999473794990529,
+      "recall": 0.41305481893666046,
+      "f1": 0.5846177511152131,
+      "specificity": 0.9999955950047353,
+      "false_positive_rate": 4.404995264630091e-06,
+      "false_negative_rate": 0.5869451810633396,
+      "confusion_matrix": {
+        "tn": 227014,
+        "fp": 1,
+        "fn": 27003,
+        "tp": 19003
+      }
+    },
+    "FAST_BLOCK": {
+      "correct": 228020,
+      "total": 273021,
+      "accuracy": 0.8351738510957033,
+      "mismatch_count": 45001,
+      "precision": 1.0,
+      "recall": 0.43038150932887775,
+      "f1": 0.601771634381388,
+      "specificity": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.5696184906711222,
+      "confusion_matrix": {
+        "tn": 194019,
+        "fp": 0,
+        "fn": 45001,
+        "tp": 34001
+      }
+    },
+    "INDICATION": {
+      "correct": 215010,
+      "total": 273021,
+      "accuracy": 0.7875218389794192,
+      "mismatch_count": 58011,
+      "precision": 0.9999400131970967,
+      "recall": 0.4629684491186491,
+      "f1": 0.6329045036607668,
+      "specificity": 0.9999818187327657,
+      "false_positive_rate": 1.818126723432623e-05,
+      "false_negative_rate": 0.5370315508813509,
+      "confusion_matrix": {
+        "tn": 165002,
+        "fp": 3,
+        "fn": 58008,
+        "tp": 50008
+      }
+    }
+  }
+}

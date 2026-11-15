@@ -17,6 +17,8 @@ Outputs:
 import torch
 import torch.nn as nn
 
+from src.models.conditional_mlp_film import FILM_SETTINGS, FiLMConditioner, apply_film
+
 
 STAGE1_INPUTS = [
     "IA_GT", "IB_GT", "IC_GT",
@@ -38,30 +40,42 @@ STAGE1_OUTPUTS = [
 class Stage1MLP(nn.Module):
     """MLP replacing the five combinational gates in Stage 1."""
 
-    def __init__(self, hidden_dim=32):
+    def __init__(self, hidden_dim=32, settings_dim=len(FILM_SETTINGS)):
         super().__init__()
 
+        self.film = FiLMConditioner(settings_dim, hidden_dim)
         self.network = nn.Sequential(
             nn.Linear(len(STAGE1_INPUTS), hidden_dim),
-            nn.ReLU(),
             nn.Linear(hidden_dim, hidden_dim),
             nn.ReLU(),
             nn.Linear(hidden_dim, len(STAGE1_OUTPUTS)),
         )
 
-    def forward(self, signals):
-        logits = self.network(signals)
+    def forward(self, signals, settings=None):
+        features = self.network[0](signals)
+        if settings is not None:
+            features = apply_film(features, settings, self.film)
+        features = torch.relu(features)
+        features = self.network[1](features)
+        features = torch.relu(self.network[2](features))
+        logits = self.network[3](features)
 
         # The reference 2_AND gate receives NOT VTS_BLOCKING. Keep the
         # external Stage 1 input raw and apply this inversion only to 2_AND.
         gate2_signals = signals.clone()
         gate2_signals[:, 10] = 1.0 - gate2_signals[:, 10]
-        gate2_logits = self.network(gate2_signals)[:, 4:5]
+        gate2_features = self.network[0](gate2_signals)
+        if settings is not None:
+            gate2_features = apply_film(gate2_features, settings, self.film)
+        gate2_features = torch.relu(gate2_features)
+        gate2_features = self.network[1](gate2_features)
+        gate2_features = torch.relu(self.network[2](gate2_features))
+        gate2_logits = self.network[3](gate2_features)[:, 4:5]
 
         return torch.cat([logits[:, :4], gate2_logits], dim=1)
 
-    def predict_binary(self, signals):
-        logits = self.forward(signals)
+    def predict_binary(self, signals, settings=None):
+        logits = self.forward(signals, settings)
         return (torch.sigmoid(logits) >= 0.5).float()
 
 

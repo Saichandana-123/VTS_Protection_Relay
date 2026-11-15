@@ -1,0 +1,11 @@
+{
+  "test_command": "python -m pytest -q",
+  "test_result": "8 passed in 8.39s",
+  "test_files": [
+    "tests/tests_vts_logic.py",
+    "tests/test_timing.py",
+    "tests/test_vts_simulator.py",
+    "tests/test_vts_staged_model.py"
+  ],
+  "pipeline": "Full 21-case FiLM sequential evaluator completed; deterministic timers and SR flip-flops are exercised by VTSStagedModel.step()."
+}

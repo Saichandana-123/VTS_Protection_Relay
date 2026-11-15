@@ -1,0 +1,1095 @@
+{
+  "conditioning": {
+    "settings": [
+      "I_SETTING",
+      "I2_SETTING",
+      "tVTS"
+    ],
+    "formula": "gamma(settings) * hidden + beta(settings)",
+    "threshold": 0.5,
+    "threshold_tuning": "none"
+  },
+  "validation_cases": [
+    "case_088",
+    "case_089",
+    "case_090",
+    "case_091",
+    "case_092",
+    "case_093",
+    "case_094",
+    "case_095",
+    "case_096",
+    "case_097",
+    "case_098",
+    "case_099",
+    "case_100",
+    "case_101",
+    "case_102",
+    "case_103",
+    "case_104",
+    "case_105",
+    "case_106",
+    "case_107",
+    "case_108"
+  ],
+  "summary": {
+    "SLOW_BLOCK": {
+      "accuracy": 0.9999890118342545,
+      "precision": 0.9999347953661241,
+      "recall": 1.0,
+      "f1": 0.9999673966201162,
+      "false_positive_count": 3,
+      "false_negative_count": 0,
+      "confusion_matrix": {
+        "tn": 227012,
+        "fp": 3,
+        "fn": 0,
+        "tp": 46006
+      },
+      "correct": 273018,
+      "total": 273021
+    },
+    "FAST_BLOCK": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_count": 0,
+      "false_negative_count": 0,
+      "confusion_matrix": {
+        "tn": 194019,
+        "fp": 0,
+        "fn": 0,
+        "tp": 79002
+      },
+      "correct": 273021,
+      "total": 273021
+    },
+    "INDICATION": {
+      "accuracy": 0.9596844198797895,
+      "precision": 0.9999484637029861,
+      "recall": 0.8981447193008443,
+      "f1": 0.9463164825517595,
+      "false_positive_count": 5,
+      "false_negative_count": 11002,
+      "confusion_matrix": {
+        "tn": 165000,
+        "fp": 5,
+        "fn": 11002,
+        "tp": 97014
+      },
+      "correct": 262014,
+      "total": 273021
+    }
+  },
+  "cases": [
+    {
+      "case_id": "case_088",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 5999,
+            "fp": 0,
+            "fn": 0,
+            "tp": 7002
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 1000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 12001
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 5999,
+            "fp": 0,
+            "fn": 0,
+            "tp": 7002
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_089",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9995004995004995,
+          "recall": 1.0,
+          "f1": 0.9997501873594804,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 10999,
+            "fp": 1,
+            "fn": 0,
+            "tp": 2001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_090",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 3000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 10001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_091",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998889012331963,
+          "recall": 1.0,
+          "f1": 0.9999444475306927,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 4000,
+            "fp": 1,
+            "fn": 0,
+            "tp": 9000
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 2001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 11000
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998889012331963,
+          "recall": 1.0,
+          "f1": 0.9999444475306927,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 4000,
+            "fp": 1,
+            "fn": 0,
+            "tp": 9000
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_092",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 7000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 6001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_093",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_094",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998889135747612,
+          "recall": 1.0,
+          "f1": 0.9999444537021608,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 3999,
+            "fp": 1,
+            "fn": 0,
+            "tp": 9001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_095",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 9000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 4001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_096",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 10000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 3001
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 2001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 11000
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 10000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 3001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_097",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_098",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_099",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998750156230471,
+          "recall": 1.0,
+          "f1": 0.9999375039060059,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 5000,
+            "fp": 1,
+            "fn": 0,
+            "tp": 8000
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 2001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 11000
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998750156230471,
+          "recall": 1.0,
+          "f1": 0.9999375039060059,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 5000,
+            "fp": 1,
+            "fn": 0,
+            "tp": 8000
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_100",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 5999,
+            "fp": 0,
+            "fn": 0,
+            "tp": 7002
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 1000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 12001
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 5999,
+            "fp": 0,
+            "fn": 0,
+            "tp": 7002
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_101",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.8460887624028921,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 2001,
+          "confusion_matrix": {
+            "tn": 11000,
+            "fp": 0,
+            "fn": 2001,
+            "tp": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_102",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 3000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 10001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_103",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998889012331963,
+          "recall": 1.0,
+          "f1": 0.9999444475306927,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 4000,
+            "fp": 1,
+            "fn": 0,
+            "tp": 9000
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 2001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 11000
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.9999230828397816,
+          "precision": 0.9998889012331963,
+          "recall": 1.0,
+          "f1": 0.9999444475306927,
+          "false_positive_count": 1,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 4000,
+            "fp": 1,
+            "fn": 0,
+            "tp": 9000
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_104",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 7000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 6001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_105",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_106",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 0.30766864087377893,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 9001,
+          "confusion_matrix": {
+            "tn": 4000,
+            "fp": 0,
+            "fn": 9001,
+            "tp": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_107",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 13001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 9000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 4001
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_108",
+      "rows": 13001,
+      "outputs": {
+        "SLOW_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 10000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 3001
+          }
+        },
+        "FAST_BLOCK": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 2001,
+            "fp": 0,
+            "fn": 0,
+            "tp": 11000
+          }
+        },
+        "INDICATION": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "confusion_matrix": {
+            "tn": 10000,
+            "fp": 0,
+            "fn": 0,
+            "tp": 3001
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "status": "measured from an existing trained FiLM stage-1 checkpoint; no optimizer or retraining used during this comparison",
+  "checkpoint": "models/trained/film/stage1_best.pt",
+  "dataset": "data/simulink_dataset/vts_training_dataset.csv",
+  "sample_case": "case_100",
+  "fixed_stage1_input_names": [
+    "IA_OK",
+    "IB_OK",
+    "IC_OK",
+    "DELTA_IA_OK",
+    "DELTA_IB_OK",
+    "DELTA_IC_OK",
+    "VTS_MANRESET",
+    "VTS_AUTORESET",
+    "VAB_OK",
+    "VBC_OK",
+    "VTS_BLOCKING",
+    "ACCELERATE_IND"
+  ],
+  "fixed_stage1_input": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0
+  ],
+  "settings_order": [
+    "I_SETTING",
+    "I2_SETTING",
+    "tVTS"
+  ],
+  "comparison": [
+    {
+      "settings": [
+        0.08,
+        0.05,
+        1.0
+      ],
+      "binary_prediction": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "settings": [
+        0.5,
+        0.1,
+        2.0
+      ],
+      "binary_prediction": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "result": "Stage-1 binary prediction changed with settings while the checkpoint and input were held fixed. This is a stage-level sensitivity test, not a full-pipeline SLOW_BLOCK/FAST_BLOCK/INDICATION evaluation.",
+  "original_case_settings": {
+    "I_SETTING": 2.0,
+    "I2_SETTING": 0.3,
+    "tVTS": 5.0
+  },
+  "qualification": "The tested setting tuples are observed elsewhere in the existing dataset, but are counterfactual for this fixed case_100 input. This proves a learned stage output can change without weight updates; it does not validate accuracy under newly simulated settings."
+}

@@ -698,3 +698,82 @@ It provides a more specific understanding of the integrated model's performance 
 - `models/experimental/stagewise_threshold_analysis/stagewise_threshold_analysis.json`
 - `models/experimental/stagewise_threshold_analysis/run_stagewise_threshold_analysis.py`
 
+
+
+# Final FiLM Implementation and Integrated Results (2026-11-15)
+
+This section is the authoritative result for the final six-stage MLP + FiLM model. Earlier non-FiLM experiments below remain historical context and are not FiLM metrics. Values were cross-checked against `models/trained/film/training_metrics.json` and `models/trained/film/integrated_evaluation.json`.
+
+## Objective and data
+
+The project replicates the Voltage Transformer Supervision (VTS) function of a MiCOM P642 protection IED as a modular hybrid: learned combinational stages conditioned on relay settings, with deterministic timers and synchronized SR flip-flops. The reference outputs and intermediate signals come from the Simulink model and its generated CSVs. The campaign contains 108 cases and 1,404,108 rows (13,001 rows/case). The saved case-wise split is cases 001?087 for training (87 cases, 1,131,087 rows) and cases 088?108 for validation (21 cases, 273,021 rows). IDs are sorted and the final 20% of case IDs assigned to validation; this avoids row-wise temporal leakage, but is not an independent campaign.
+
+The training table contains logged Simulink detector/logic signals, settings (`I_SETTING`, `I2_SETTING`, `tVTS`), intermediate stage targets, and final `SLOW_BLOCK`, `FAST_BLOCK`, `INDICATION`. Stage 1 consumes logged detector outputs and binary controls; later stages consume earlier logic outputs plus deterministic timer/flip-flop signals. This does not independently validate analog detector behavior.
+
+## Architecture and execution
+
+Six MLP stages approximate combinational logic groups: Stage 1 detector/control OR/AND outputs; Stage 2 voltage/current and 240 ms timer logic; Stage 3 pole-dead, voltage-dependent and SR1 logic; Stage 4 timer/logic path to `10_AND_OUT`; Stage 5 combines SR3, MCB, prior logic, VTS timer and 20 ms timer; Stage 6 emits the three final outputs. Exact feature lists and output names are in `scripts/training/train_six_stage_network.py` and the `STAGE*_INPUTS/OUTPUTS` declarations in `src/models/stage*_model.py`.
+
+FiLM conditions hidden features using settings. For hidden vector `h` and settings vector `s=[I_SETTING,I2_SETTING,tVTS]`, the conditioner predicts scale and shift: `gamma(s), beta(s) = split(g(s))`; `h_cond = gamma(s) ? h + beta(s)`. The conditioner output layer is zero-initialized, so initial modulation is identity (`gamma=1+0`, `beta=0`). Stage logits are trained with binary cross-entropy with logits and thresholded at 0.5 for binary inference. A fixed-parameter MLP has no explicit path for changing settings at inference; FiLM supplies that conditioning without changing weights. FiLM was selected to preserve the MLP while allowing setting-conditioned hidden features.
+
+Timers and state are not neural outputs: `PickupDelay`/`DropoffDelay` implement the 240 ms, 20 ms and setting-dependent `tVTS` timing; four SR flip-flops hold state. `VTSStagedModel.step()` executes Stage 1 ? 240 ms drop-off timer ? Stage 2 ? SR1 ? Stage 3 ? SR2 ? Stage 4 ? `tVTS` timer ? 20 ms timer ? SR3 ? Stage 5 ? SR4 ? Stage 6. `reset()` clears state between cases.
+
+## FiLM training
+
+Training ran on CPU with seed 20261104, Adam learning rate 0.001, batch size 4096, BCE-with-logits, 12 epochs per stage, and lowest validation loss checkpoint selection. All six checkpoint files were produced. The table reports stage-level element accuracy across each stage's target bits; it must not be interpreted as sequential final-output accuracy.
+
+| Stage | Epochs | Train accuracy | Validation accuracy | Train loss | Validation loss |
+|---|---:|---:|---:|---:|---:|
+| stage1 | 12 | 100.000000% | 98.388402% | 3.2491877e-06 | 0.035481061 |
+| stage2 | 12 | 100.000000% | 100.000000% | 0.00024511989 | 0.00020914273 |
+| stage3 | 12 | 100.000000% | 100.000000% | 0.0046038839 | 0.017031547 |
+| stage4 | 12 | 100.000000% | 100.000000% | 7.8924771e-07 | 4.0871756e-07 |
+| stage5 | 12 | 100.000000% | 100.000000% | 1.4028356e-05 | 1.0589532e-05 |
+| stage6 | 12 | 100.000000% | 100.000000% | 1.6371722e-05 | 7.2322468e-06 |
+
+## Final sequential evaluation
+
+The existing FiLM evaluator loaded all six FiLM checkpoints and processed each held-out case sequentially through `VTSStagedModel`, including deterministic state. Threshold was 0.5; no threshold tuning was performed.
+
+| Output | Accuracy | Precision | Recall | F1 | Specificity | FPR | FNR | TN | FP | FN | TP |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| SLOW_BLOCK | 99.998901% | 99.993480% | 100.000000% | 99.996740% | 99.998679% | 0.001321% | 0.000000% | 227012 | 3 | 0 | 46006 |
+| FAST_BLOCK | 100.000000% | 100.000000% | 100.000000% | 100.000000% | 100.000000% | 0.000000% | 0.000000% | 194019 | 0 | 0 | 79002 |
+| INDICATION | 95.968442% | 99.994846% | 89.814472% | 94.631648% | 99.996970% | 0.003030% | 10.185528% | 165000 | 5 | 11002 | 97014 |
+
+For each binary output: accuracy=(TP+TN)/(TP+TN+FP+FN); precision=TP/(TP+FP); recall/sensitivity=TP/(TP+FN); F1=2?precision?recall/(precision+recall); specificity=TN/(TN+FP); FPR=FP/(FP+TN); FNR=FN/(FN+TP). Accuracy alone can hide missed positive protection events when negatives dominate; recall and FN are safety-relevant. Here SLOW_BLOCK and FAST_BLOCK have no false negatives in this validation set; INDICATION has 11,002 false negatives despite 95.97% accuracy. These are validation findings, not safety certification.
+
+## Settings sensitivity (not changed-setting accuracy)
+
+The same six-checkpoint set was loaded once and case 100's 13,001-row Simulink-derived sequence replayed twice with settings `[I_SETTING,I2_SETTING,tVTS]=[0.08,0.05,1.0]` and `[0.5,0.1,2.0]`; weights were not updated and no retraining occurred. Final output predictions changed on 10,002 SLOW_BLOCK rows, 12,001 FAST_BLOCK rows, and 10,002 INDICATION rows. The original case settings were `[2.0,0.3,5.0]`; the non-setting inputs/intermediate Simulink signals were frozen. No Simulink ground truth was regenerated for these alternative configurations. Therefore this establishes settings sensitivity, not accuracy or generalization under changed settings. Full details: `results/film_pipeline_settings_replay.json` and `results/film_setting_sensitivity_stage1.json`.
+
+## Historical experiments (non-FiLM unless stated)
+
+1. **Initial six-stage non-FiLM MLP:** fixed weights were trained against logged stage targets. Standalone stage accuracy was high, but sequential evaluation exposed error propagation and false negatives.
+2. **Stage 1 polarity correction:** corrected the `VTS_BLOCKING`/complement contract. Stage 1 validation accuracy changed only marginally (about 90.33%); integrated binary predictions on 273,021 rows were identical.
+3. **Integrated baseline evaluation:** legacy non-FiLM results on the same holdout were SLOW_BLOCK accuracy/precision/recall/F1 90.1092/99.9947/41.3055/58.4618%; FAST_BLOCK 83.5174/100/43.0382/60.1772%; INDICATION 78.7522/99.9940/46.2968/63.2905%. This is not final FiLM performance.
+4. **SR flip-flop synchronization:** aligned state commits with the Simulink step order. Tests were added/passed; aggregate legacy final predictions on the saved holdout did not change.
+5. **Corrected Stage 1 checkpoint evaluation:** repeated the sequential validation with the corrected checkpoint; integrated metrics remained the legacy baseline above.
+6. **Class-weighted BCE:** targeted class imbalance in selected stages. It improved standalone Stage 1 accuracy but did not change integrated final recall; the experiment was not adopted as an integrated improvement.
+7. **Stage-wise threshold sensitivity:** diagnostic threshold sweeps on validation data found Stage 1 dominated the observed changes. Because thresholds were explored against validation labels, those gains are exploratory and not unbiased test results.
+8. **Final six-stage FiLM:** setting-conditioned stages were trained for 12 epochs each; final sequential metrics are the table above. This is the selected architecture/result.
+
+## Limitations and next work
+
+No independent cases outside the original 108-case campaign were evaluated. The case-wise holdout does not establish unseen-scenario generalization. Alternative-setting golden-twin labels were not generated; the sensitivity replay is not an accuracy test. Logged detector features mean analog detector generalization remains unverified. No field/noise, hardware-in-the-loop, real-time performance, or protection-grade safety validation was performed. Generate a provenance-controlled independent Simulink campaign, evaluate once without threshold selection on its labels, and then perform timing/HIL and safety review.
+
+
+## Final FiLM stage signal contracts
+
+| Stage | Input signals | Target/output signals |
+|---|---|---|
+| 1 | IA_OK, IB_OK, IC_OK, DELTA_IA_OK, DELTA_IB_OK, DELTA_IC_OK, VTS_MANRESET, VTS_AUTORESET, VAB_OK, VBC_OK, VTS_BLOCKING, ACCELERATE_IND | 1_OR_OUT, 2_OR_OUT, 3_OR_OUT, 1_AND_OUT, 2_AND_OUT |
+| 2 | V2, I2, 240_TIMER_OUT, 1_AND_OUT, 2_OR_OUT | 3_AND_OUT, 4_AND_OUT, 4_OR_OUT, 5_AND_OUT |
+| 3 | ALL_POLE_DEAD, 1_OR_OUT, 4_OR_OUT, 4_AND_OUT, SR_1_OUT, 3_OR_OUT, ANY_VOLTAGE_DEPENDENT_FUNCTION | 6_AND_OUT, 7_AND_OUT, 8_AND_OUT, 9_AND_OUT |
+| 4 | SR_2_OUT, 6_AND_OUT, 240_TIMER_OUT, 2_AND_OUT | 10_AND_OUT |
+| 5 | SR_3_OUT, MCB_VTS, 8_AND_OUT, VTS_TIMER_OUT, 20_TIMER_OUT | 5_OR_OUT, 6_OR_OUT, 7_OR_OUT |
+| 6 | 5_OR_OUT, 6_OR_OUT, VTS_BLOCKING, MCB_VTS, SR_4_OUT | SLOW_BLOCK, FAST_BLOCK, INDICATION |
+
+Settings conditioning is applied separately alongside these signal inputs at every FiLM stage. FiLM was chosen as a simple modulation of intermediate features (`scale + shift`) that preserves the MLP stage interfaces and avoids retraining weights for each setting tuple. Concatenating settings at the raw input or using a larger hypernetwork are alternatives, but this project did not run a controlled benchmark comparing those alternatives; selection is an engineering rationale, not a measured superiority claim.
+
+Figures for training/validation accuracy and loss are `results/figures/film_training_validation_accuracy.png` and `results/figures/film_training_validation_loss.png`. Other requested figures are under `results/figures/`.

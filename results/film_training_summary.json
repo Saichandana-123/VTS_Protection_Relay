@@ -1,0 +1,79 @@
+{
+  "source_file": "models/trained/film/training_metrics.json",
+  "seed": 20261104,
+  "device": "cpu",
+  "train_case_count": 87,
+  "validation_cases": [
+    "case_088",
+    "case_089",
+    "case_090",
+    "case_091",
+    "case_092",
+    "case_093",
+    "case_094",
+    "case_095",
+    "case_096",
+    "case_097",
+    "case_098",
+    "case_099",
+    "case_100",
+    "case_101",
+    "case_102",
+    "case_103",
+    "case_104",
+    "case_105",
+    "case_106",
+    "case_107",
+    "case_108"
+  ],
+  "stages": {
+    "stage1": {
+      "checkpoint": "stage1_best.pt",
+      "epochs_run": 12,
+      "best_train_loss": 3.2491876673546912e-06,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 0.035481061329972405,
+      "best_validation_accuracy": 0.9838840235732782
+    },
+    "stage2": {
+      "checkpoint": "stage2_best.pt",
+      "epochs_run": 12,
+      "best_train_loss": 0.0002451198870653869,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 0.0002091427258370353,
+      "best_validation_accuracy": 1.0
+    },
+    "stage3": {
+      "checkpoint": "stage3_best.pt",
+      "epochs_run": 12,
+      "best_train_loss": 0.004603883919246092,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 0.017031547285419887,
+      "best_validation_accuracy": 1.0
+    },
+    "stage4": {
+      "checkpoint": "stage4_best.pt",
+      "epochs_run": 12,
+      "best_train_loss": 7.892477101430302e-07,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 4.087175641741071e-07,
+      "best_validation_accuracy": 1.0
+    },
+    "stage5": {
+      "checkpoint": "stage5_best.pt",
+      "epochs_run": 12,
+      "best_train_loss": 1.4028356061768205e-05,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 1.0589532219087818e-05,
+      "best_validation_accuracy": 1.0
+    },
+    "stage6": {
+      "checkpoint": "stage6_best.pt",
+      "epochs_run": 12,
+      "best_train_loss": 1.637172240556857e-05,
+      "best_train_accuracy": 1.0,
+      "best_validation_loss": 7.232246774468326e-06,
+      "best_validation_accuracy": 1.0
+    }
+  }
+}

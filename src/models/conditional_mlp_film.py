@@ -15,6 +15,8 @@ Note:
 import torch
 import torch.nn as nn
 
+FILM_SETTINGS = ("I_SETTING", "I2_SETTING", "tVTS")
+
 
 class FiLMConditioner(nn.Module):
     """Generate feature-wise scale and shift from relay settings."""
@@ -27,6 +29,8 @@ class FiLMConditioner(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_dim, hidden_dim * 2),
         )
+        nn.init.zeros_(self.network[-1].weight)
+        nn.init.zeros_(self.network[-1].bias)
 
     def forward(self, settings):
         parameters = self.network(settings)
@@ -36,6 +40,12 @@ class FiLMConditioner(nn.Module):
         gamma = 1.0 + gamma
 
         return gamma, beta
+
+
+def apply_film(features, settings, conditioner):
+    """Apply setting-conditioned feature-wise affine modulation."""
+    gamma, beta = conditioner(settings)
+    return gamma * features + beta
 
 
 class ConditionalMLPFiLM(nn.Module):

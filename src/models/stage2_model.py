@@ -20,6 +20,8 @@ The 4_OR_OUT prediction feeds the 5_AND_OUT subnetwork.
 import torch
 import torch.nn as nn
 
+from src.models.conditional_mlp_film import FILM_SETTINGS, FiLMConditioner, apply_film
+
 
 STAGE2_INPUTS = [
     "V2",
@@ -39,8 +41,9 @@ STAGE2_OUTPUTS = [
 
 class Stage2MLP(nn.Module):
 
-    def __init__(self, hidden_dim=32):
+    def __init__(self, hidden_dim=32, settings_dim=len(FILM_SETTINGS)):
         super().__init__()
+        self.film = FiLMConditioner(settings_dim, hidden_dim)
 
         # Predict 3_AND_OUT, 4_AND_OUT and 4_OR_OUT.
         self.first_network = nn.Sequential(
@@ -58,7 +61,7 @@ class Stage2MLP(nn.Module):
             nn.Linear(hidden_dim, 1),
         )
 
-    def forward(self, signals):
+    def forward(self, signals, settings=None):
 
         v2 = signals[:, 0:1]
         i2 = signals[:, 1:2]
@@ -67,7 +70,13 @@ class Stage2MLP(nn.Module):
         or2_out = signals[:, 4:5]
 
         # First three outputs.
-        first_logits = self.first_network(signals)
+        first_features = self.first_network[0](signals)
+        if settings is not None:
+            first_features = apply_film(first_features, settings, self.film)
+        first_features = torch.relu(first_features)
+        first_features = self.first_network[2](first_features)
+        first_features = torch.relu(self.first_network[3](first_features))
+        first_logits = self.first_network[4](first_features)
 
         first_outputs = torch.sigmoid(first_logits)
 
@@ -90,8 +99,8 @@ class Stage2MLP(nn.Module):
             dim=1
         )
 
-    def predict_binary(self, signals):
-        return (torch.sigmoid(self.forward(signals)) >= 0.5).float()
+    def predict_binary(self, signals, settings=None):
+        return (torch.sigmoid(self.forward(signals, settings)) >= 0.5).float()
 
 
 if __name__ == "__main__":
